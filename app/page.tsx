@@ -43,7 +43,7 @@ export default function Home() {
           <div className="relative z-10">
             <BlurIn
               word="Your ▲ Firewall as Config"
-              className="text-6xl font-bold mb-6 text-black dark:text-white bg-gradient-to-b from-black to-gray-800/90 bg-clip-text text-center leading-none text-transparent dark:from-white dark:to-slate-900/10"
+              className="text-6xl font-bold mb-6 text-black dark:text-white bg-gradient-to-b from-black to-gray-900/90 bg-clip-text text-center leading-none text-transparent dark:from-white dark:to-slate-900/10"
             />
             <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
               Manage Vercel Firewall rules as code, enabling version control and
