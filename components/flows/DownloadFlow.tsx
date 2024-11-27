@@ -56,6 +56,7 @@ export function DownloadFlowBeam() {
 
       <AnimatedBeam
         duration={3}
+        pathWidth={3}
         // @ts-expect-error - TS doesn't like the ref type
         containerRef={containerRef}
         // @ts-expect-error - TS doesn't like the ref type
@@ -65,6 +66,7 @@ export function DownloadFlowBeam() {
       />
       <AnimatedBeam
         duration={3}
+        pathWidth={3}
         // @ts-expect-error - TS doesn't like the ref type
         containerRef={containerRef}
         // @ts-expect-error - TS doesn't like the ref type

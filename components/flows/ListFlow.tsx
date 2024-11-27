@@ -68,32 +68,35 @@ export function ListFlow({ className }: { className?: string }) {
 
       {/* AnimatedBeams */}
       <AnimatedBeam
+        duration={3}
+        pathWidth={3}
         // @ts-expect-error - TS doesn't like the ref type
         containerRef={containerRef}
         // @ts-expect-error - TS doesn't like the ref type
         fromRef={div1Ref}
         // @ts-expect-error - TS doesn't like the ref type
         toRef={div6Ref}
-        duration={3}
       />
       <AnimatedBeam
+        duration={3}
+        pathWidth={3}
         // @ts-expect-error - TS doesn't like the ref type
         containerRef={containerRef}
         // @ts-expect-error - TS doesn't like the ref type
         fromRef={div2Ref}
         // @ts-expect-error - TS doesn't like the ref type
         toRef={div6Ref}
-        duration={3}
       />
 
       <AnimatedBeam
+        duration={3}
+        pathWidth={3}
         // @ts-expect-error - TS doesn't like the ref type
         containerRef={containerRef}
         // @ts-expect-error - TS doesn't like the ref type
         fromRef={div6Ref}
         // @ts-expect-error - TS doesn't like the ref type
         toRef={div7Ref}
-        duration={3}
       />
     </div>
   );

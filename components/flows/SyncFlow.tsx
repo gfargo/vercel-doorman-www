@@ -55,6 +55,7 @@ export function SyncFlow({ className }: { className?: string }) {
       </div>
 
       <AnimatedBeam
+        pathWidth={3}
         // @ts-expect-error - TS doesn't like the ref type
         containerRef={containerRef}
         // @ts-expect-error - TS doesn't like the ref type
@@ -64,6 +65,7 @@ export function SyncFlow({ className }: { className?: string }) {
         reverse
       />
       <AnimatedBeam
+        pathWidth={3}
         // @ts-expect-error - TS doesn't like the ref type
         containerRef={containerRef}
         // @ts-expect-error - TS doesn't like the ref type
@@ -72,6 +74,7 @@ export function SyncFlow({ className }: { className?: string }) {
         fromRef={div3Ref}
       />
       <AnimatedBeam
+        pathWidth={3}
         // @ts-expect-error - TS doesn't like the ref type
         containerRef={containerRef}
         // @ts-expect-error - TS doesn't like the ref type
@@ -83,6 +86,7 @@ export function SyncFlow({ className }: { className?: string }) {
         curvature={-20}
       />
       <AnimatedBeam
+        pathWidth={3}
         // @ts-expect-error - TS doesn't like the ref type
         containerRef={containerRef}
         // @ts-expect-error - TS doesn't like the ref type
