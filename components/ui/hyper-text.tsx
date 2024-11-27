@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, Variants } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -39,31 +39,30 @@ export default function HyperText({
   };
 
   useEffect(() => {
-    const interval = setInterval(
-      () => {
-        if (!animateOnLoad && isFirstRender.current) {
-          clearInterval(interval);
-          isFirstRender.current = false;
-          return;
-        }
-        if (interations.current < text.length) {
-          setDisplayText((t) =>
-            t.map((l, i) =>
+    const interval = setInterval(() => {
+      if (!animateOnLoad && isFirstRender.current) {
+        clearInterval(interval);
+        isFirstRender.current = false;
+        return;
+      }
+      if (interations.current < text.length) {
+        setDisplayText((t) =>
+          t
+            .map((l, i) =>
               l === " "
                 ? l
                 : i <= interations.current
-                  ? text[i]
-                  : alphabets[getRandomInt(26)],
-            ),
-          );
-          interations.current = interations.current + 0.1;
-        } else {
-          setTrigger(false);
-          clearInterval(interval);
-        }
-      },
-      duration / (text.length * 10),
-    );
+                ? text[i]
+                : alphabets[getRandomInt(26)]
+            )
+            .filter((l): l is string => l !== undefined)
+        );
+        interations.current = interations.current + 0.1;
+      } else {
+        setTrigger(false);
+        clearInterval(interval);
+      }
+    }, duration / (text.length * 10));
     // Clean up interval on unmount
     return () => clearInterval(interval);
   }, [text, duration, trigger, animateOnLoad]);
@@ -77,10 +76,17 @@ export default function HyperText({
         {displayText.map((letter, i) => (
           <motion.h1
             key={i}
-            className={cn("font-mono", letter === " " ? "w-3" : "", className)}
             {...framerProps}
           >
-            {letter.toUpperCase()}
+            <span
+              className={cn(
+                "font-mono",
+                letter === " " ? "w-3" : "",
+                className
+              )}
+            >
+              {letter.toUpperCase()}
+            </span>
           </motion.h1>
         ))}
       </AnimatePresence>

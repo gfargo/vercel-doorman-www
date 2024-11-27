@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 interface BoxRevealProps {
   children: JSX.Element;
@@ -19,8 +19,8 @@ export const BoxReveal = ({
   const mainControls = useAnimation();
   const slideControls = useAnimation();
 
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref as React.RefObject<Element>, { once: true });
 
   useEffect(() => {
     if (isInView) {
@@ -33,7 +33,10 @@ export const BoxReveal = ({
   }, [isInView, mainControls, slideControls]);
 
   return (
-    <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
+    <div
+      ref={ref}
+      style={{ position: "relative", width, overflow: "hidden" }}
+    >
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },

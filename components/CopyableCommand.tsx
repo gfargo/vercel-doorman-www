@@ -25,7 +25,9 @@ export function CopyableCommand({ command }: Props) {
 
   const copyToClipboard = async () => {
     const textToCopy =
-      (selectedManager && selectedManager?.command) || command[0].command;
+      (selectedManager && selectedManager?.command) ||
+      command[0]?.command ||
+      "";
     try {
       await navigator.clipboard.writeText(textToCopy);
       setCopied(true);
@@ -59,11 +61,11 @@ export function CopyableCommand({ command }: Props) {
             copyToClipboard();
           }}
         >
-          {(selectedManager && selectedManager.command) || command[0].command}
+          {(selectedManager && selectedManager.command) || command[0]?.command || ""}
         </pre>
         <div className="absolute top-2 right-2">
           <Select
-            value={selectedManager?.value || command[0].value}
+            value={selectedManager?.value || command[0]?.value || ""}
             onValueChange={(value) => {
               setSelectedManager(
                 command.find((cmd) => cmd.value === value) || command[0]

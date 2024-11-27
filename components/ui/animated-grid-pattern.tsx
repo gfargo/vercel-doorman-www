@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useEffect, useId, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -60,8 +60,8 @@ export default function AnimatedGridPattern({
               ...sq,
               pos: getPos(),
             }
-          : sq,
-      ),
+          : sq
+      )
     );
   };
 
@@ -100,7 +100,7 @@ export default function AnimatedGridPattern({
       aria-hidden="true"
       className={cn(
         "pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30",
-        className,
+        className
       )}
       {...props}
     >
@@ -120,9 +120,17 @@ export default function AnimatedGridPattern({
           />
         </pattern>
       </defs>
-      <rect width="100%" height="100%" fill={`url(#${id})`} />
-      <svg x={x} y={y} className="overflow-visible">
-        {squares.map(({ pos: [x, y], id }, index) => (
+      <rect
+        width="100%"
+        height="100%"
+        fill={`url(#${id})`}
+      />
+      <svg
+        x={x}
+        y={y}
+        className="overflow-visible"
+      >
+        {squares.map(({ pos: [x = 0, y = 0], id }, index) => (
           <motion.rect
             initial={{ opacity: 0 }}
             animate={{ opacity: maxOpacity }}

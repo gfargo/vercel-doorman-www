@@ -58,6 +58,7 @@ export function InteractiveImage({ src, alt, flow }: InteractiveImageProps) {
           rotateY,
           scale,
         }}
+        // @ts-ignore  type error
         className="relative w-full h-[300px] rounded-lg overflow-hidden shadow-lg border border-solid"
       >
         <div className="w-full h-full inset-0 absolute z-10 flex flex-col items-center justify-center p-8">
