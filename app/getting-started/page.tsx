@@ -1,13 +1,11 @@
 import { CopyableCommand } from "@/components/CopyableCommand";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, InfoIcon } from "lucide-react";
 import Link from "next/link";
 
 export default function GettingStarted() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <h1 className="text-4xl font-bold mb-8">
-        Getting Started with Vercel Doorman
-      </h1>
+      <h1 className="text-4xl font-bold mb-8">Getting Started</h1>
 
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Installation</h2>
@@ -46,7 +44,7 @@ export default function GettingStarted() {
 
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
-        <ol className="list-decimal list-inside space-y-4">
+        <ol className="list-decimal list-inside space-y-8">
           <li>
             <strong>Create or update configuration file:</strong>
             <p className="mt-2">
@@ -55,14 +53,28 @@ export default function GettingStarted() {
             </p>
             <pre className="bg-gray-100 p-4 rounded-md mt-2 font-mono text-sm">
               {`{
-  "projectId": "prj_...",
-  "teamId": "team_...",
+  "projectId": "prj_",
+  "teamId": "team_",
   "rules": [ ... your rules here ... ]
 }`}
             </pre>
             <p className="mt-2">
-              Replace <code>prj_...</code> and <code>team_...</code> with your
-              actual Vercel project and team IDs.
+              Replace <code>prj_</code> and <code>team_</code> with your actual
+              Vercel
+              <Link
+                href="https://vercel.com/docs/projects/project-configuration/general-settings#project-id"
+                className="text-blue-600 hover:underline mx-1 font-semibold"
+              >
+                projectId
+              </Link>
+              and
+              <Link
+                href="https://vercel.com/docs/accounts/create-a-team#find-your-team-id"
+                className="text-blue-600 hover:underline ml-1 font-semibold"
+              >
+                teamId
+              </Link>{" "}
+              respectively.
             </p>
           </li>
           <li>
@@ -76,7 +88,7 @@ export default function GettingStarted() {
               For example configurations, visit our{" "}
               <Link
                 href="https://github.com/gfargo/vercel-doorman/tree/main/examples"
-                className="text-blue-600 hover:underline"
+                className="text-blue-600 hover:underline font-semibold"
               >
                 examples folder on GitHub
               </Link>
@@ -96,10 +108,31 @@ export default function GettingStarted() {
             <p className="mt-2">
               <Link
                 href="https://vercel.com/guides/how-do-i-use-a-vercel-api-access-token"
-                className="text-blue-600 hover:underline"
+                className="text-blue-600 hover:underline flex items-center font-semibold"
               >
+                <InfoIcon className="w-4 h-4 inline-block mr-1 " />
                 Learn how to create and use a Vercel API token
               </Link>
+            </p>
+          </li>
+
+          <li>
+            <strong>Add script alias (optional):</strong>
+            <p className="mt-2">
+              To make it easier to run the sync command, add a script alias to
+              your <code>package.json</code> file:
+            </p>
+            <pre className="bg-gray-100 p-4 rounded-md mt-2 font-mono text-sm">
+              {`"scripts": {
+    ... other scripts ...
+    "firewall:list": "vercel-doorman list --token YOUR_VERCEL_API_TOKEN",
+    "firewall:sync": "vercel-doorman sync --token YOUR_VERCEL_API_TOKEN",
+    "firewall:download": "vercel-doorman download --token YOUR_VERCEL_API_TOKEN"
+}`}
+            </pre>
+            <p className="mt-2">
+              This will allow you to run <code>npm run firewall:sync</code> to
+              apply your firewall rules.
             </p>
           </li>
         </ol>
