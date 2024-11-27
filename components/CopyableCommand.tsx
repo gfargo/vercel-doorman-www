@@ -43,6 +43,7 @@ export function CopyableCommand({ command }: Props) {
     if (selectedManager) {
       copyToClipboard();
     }
+
     return () => {
       setCopied(false);
     };

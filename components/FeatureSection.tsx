@@ -1,7 +1,7 @@
 import { InteractiveImage } from "@/components/InteractiveImage";
 import WordPullUp from "@/components/ui/word-pull-up";
 import { cn } from "@/lib/utils";
-import { CopyableCommand } from './CopyableCommand';
+import { CopyableCommand } from "./CopyableCommand";
 
 export function FeatureSection({
   title,

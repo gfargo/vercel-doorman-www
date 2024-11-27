@@ -47,29 +47,32 @@ export function InteractiveImage({ src, alt, flow }: InteractiveImageProps) {
   }, [isHovered, mouseX, mouseY]);
 
   return (
-    <motion.div
-      ref={ref}
+    <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{
-        rotateX,
-        rotateY,
-        scale,
-      }}
-      className="relative w-full h-[300px] rounded-lg overflow-hidden shadow-lg"
     >
-      <div className="w-full h-full inset-0 absolute z-10 flex flex-col items-center justify-center p-8">
-        {flow}
-      </div>
+      <motion.div
+        ref={ref}
+        style={{
+          rotateX,
+          rotateY,
+          scale,
+        }}
+        className="relative w-full h-[300px] rounded-lg overflow-hidden shadow-lg border border-solid"
+      >
+        <div className="w-full h-full inset-0 absolute z-10 flex flex-col items-center justify-center p-8">
+          {flow}
+        </div>
 
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        style={{ objectFit: "cover" }}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className='relative z-0'
-      />
-    </motion.div>
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          style={{ objectFit: "cover" }}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="relative z-0"
+        />
+      </motion.div>
+    </div>
   );
 }

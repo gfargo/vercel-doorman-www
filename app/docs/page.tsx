@@ -213,9 +213,9 @@ VERCEL_TEAM_ID=your_team_id`}
           </li>
         </ul>
         <p className="mt-4">
-          <strong className='mr-1'>Authentication Token:</strong>
-          If you haven&apos;t set up environment variables, you can also pass the
-          Vercel API token directly in the command using the{" "}
+          <strong className="mr-1">Authentication Token:</strong>
+          If you haven&apos;t set up environment variables, you can also pass
+          the Vercel API token directly in the command using the{" "}
           <code>--token</code> flag:
         </p>
         <pre className="bg-gray-100 p-2 rounded-md mt-2 font-mono text-sm">

@@ -49,7 +49,7 @@ export default function Home() {
               Manage Vercel Firewall rules as code, enabling version control and
               automated deployment of your project's security configuration.
             </p>
-            <div className='w-full flex justify-center'>
+            <div className="w-full flex justify-center">
               <CopyableCommand
                 command={[
                   { value: "npm", command: "npm install vercel-doorman" },
