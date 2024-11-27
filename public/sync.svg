@@ -1,0 +1,23 @@
+<svg viewBox="0 0 540 280" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="diagonalStripes" patternUnits="userSpaceOnUse" width="10" height="10">
+      <line x1="0" y1="0" x2="11" y2="11" stroke="#8a72a1" stroke-width="1" />
+    </pattern></defs>
+  <rect width="100%" height="100%" fill="#ffffff" />
+  <rect width="100%" height="100%" fill="url(#diagonalStripes)" />
+  
+  
+    <text x="50%" y="50%"
+          dominant-baseline="middle" text-anchor="middle" fill="#15162c" 
+          font-size="14" font-weight="bold" font-family="monospace"
+          style="stroke: #ffffff; stroke-width: 0.6em"
+    >
+      sync
+    </text>
+    <text x="50%" y="50%" 
+          dominant-baseline="middle" text-anchor="middle" fill="#15162c" 
+          font-size="14" font-weight="bold" font-family="monospace">
+      sync
+    </text>
+  
+</svg>
