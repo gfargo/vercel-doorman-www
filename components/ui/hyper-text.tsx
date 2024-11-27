@@ -81,7 +81,7 @@ export default function HyperText({
             <span
               className={cn(
                 "font-mono",
-                letter === " " ? "w-3" : "",
+                letter === " " ? "w-2 block" : "",
                 className
               )}
             >

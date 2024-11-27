@@ -43,7 +43,7 @@ export default function Home() {
           <div className="relative z-10">
             <BlurIn
               word="Your ▲ Firewall as Config"
-              className="text-6xl font-bold mb-6 text-black dark:text-white"
+              className="text-6xl font-bold mb-6 text-black dark:text-white bg-gradient-to-b from-black to-gray-800/90 bg-clip-text text-center leading-none text-transparent dark:from-white dark:to-slate-900/10"
             />
             <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
               Manage Vercel Firewall rules as code, enabling version control and
@@ -62,7 +62,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container mx-auto grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-8 space-y-8 lg:space-y-0 mb-24">
+        <section className="container mx-auto grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-8 space-y-8 lg:space-y-0 mb-24 xl:px-4">
           <FeatureCard
             icon={<GitBranch className="w-6 h-6" />}
             title="Version Control"
