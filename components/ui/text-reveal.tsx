@@ -1,7 +1,7 @@
 "use client";
 
-import { FC, ReactNode, useRef } from "react";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import { FC, ReactNode, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -14,15 +14,19 @@ export const TextRevealByWord: FC<TextRevealByWordProps> = ({
   text,
   className,
 }) => {
-  const targetRef = useRef<HTMLDivElement | null>(null);
+  const targetRef = useRef<HTMLDivElement>(null!);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
+
   const words = text.split(" ");
 
   return (
-    <div ref={targetRef} className={cn("relative z-0 h-[200vh]", className)}>
+    <div
+      ref={targetRef}
+      className={cn("relative z-0 h-[200vh]", className)}
+    >
       <div
         className={
           "sticky top-0 mx-auto flex h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[5rem]"
@@ -38,7 +42,11 @@ export const TextRevealByWord: FC<TextRevealByWordProps> = ({
             const start = i / words.length;
             const end = start + 1 / words.length;
             return (
-              <Word key={i} progress={scrollYProgress} range={[start, end]}>
+              <Word
+                key={i}
+                progress={scrollYProgress}
+                range={[start, end]}
+              >
                 {word}
               </Word>
             );
@@ -60,11 +68,8 @@ const Word: FC<WordProps> = ({ children, progress, range }) => {
   return (
     <span className="xl:lg-3 relative mx-1 lg:mx-2.5">
       <span className={"absolute opacity-30"}>{children}</span>
-      <motion.span
-        style={{ opacity: opacity }}
-        className={"text-black dark:text-white"}
-      >
-        {children}
+      <motion.span style={{ opacity: opacity }}>
+        <span className={"text-black dark:text-white"}>{children}</span>
       </motion.span>
     </span>
   );
