@@ -98,7 +98,7 @@ export default function Home() {
               description="Synchronize rules between local configuration and Vercel. Keep your firewall rules up-to-date across all environments with a single command."
               icon={<FolderSyncIcon className="w-6 h-6" />}
               flow={<SyncFlow />}
-              imageSrc="/sync.svg"
+              imageSrc="/gifs/demo-sync.gif"
               command={[
                 { value: "npm", command: "npx vercel-doorman sync" },
                 { value: "yarn", command: "npx vercel-doorman sync" },
@@ -118,7 +118,7 @@ export default function Home() {
               description="Import existing firewall rules from a Vercel project. Seamlessly transition your current setup into a version-controlled environment."
               icon={<Download className="w-6 h-6" />}
               flow={<DownloadFlowBeam />}
-              imageSrc="/download.svg"
+              imageSrc="/gifs/demo-download.gif"
               command={[
                 { value: "npm", command: "npx vercel-doorman download" },
                 { value: "yarn", command: "npx vercel-doorman download" },
@@ -137,7 +137,7 @@ export default function Home() {
               description="View current firewall rules in table or JSON format. Easily inspect and understand your security configurations at a glance."
               icon={<List className="w-6 h-6" />}
               flow={<ListFlow />}
-              imageSrc="/sync.svg"
+              imageSrc="/gifs/demo-list2.gif"
               command={[
                 { value: "npm", command: "npx vercel-doorman list" },
                 { value: "yarn", command: "npx vercel-doorman list" },
