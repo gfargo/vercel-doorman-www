@@ -24,7 +24,7 @@ export function InteractiveImage({ src, alt, flow }: InteractiveImageProps) {
   const scale = useTransform(
     dampenedX,
     [-1, 0, 1],
-    [0.95, isHovered ? 1.05 : 1, 0.95]
+    [1, isHovered ? 1.05 : 1, 1]
   );
 
   useEffect(() => {
