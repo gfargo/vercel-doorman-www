@@ -48,6 +48,7 @@ export default function Home() {
             <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
               Manage{" "}
               <Link
+                className="text-gray-800 underline hover:text-gray-400 hover:no-underline"
                 href="https://vercel.com/docs/security/vercel-firewall"
                 target="_blank"
               >

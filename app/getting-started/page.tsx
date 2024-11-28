@@ -1,11 +1,16 @@
-import { CopyableCommand } from "@/components/CopyableCommand";
-import { ChevronRight, InfoIcon } from "lucide-react";
-import Link from "next/link";
+import { CopyableCommand } from "@/components/CopyableCommand"
+import BoxReveal from "@/components/ui/box-reveal"
+import WordPullUp from "@/components/ui/word-pull-up"
+import { ChevronRight, InfoIcon } from "lucide-react"
+import Link from "next/link"
 
 export default function GettingStarted() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <h1 className="text-4xl font-bold mb-8">Getting Started</h1>
+      <WordPullUp
+        words="Getting Started"
+        className="text-2xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-4xl md:leading-[5rem]"
+      />
 
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Installation</h2>
@@ -22,23 +27,25 @@ export default function GettingStarted() {
           ]}
         />
         <div className="mt-6">
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
-            <p className="text-blue-700">
-              <strong>Note for Existing Projects:</strong>
-            </p>
-            <p className="text-blue-700">
-              If you have an existing Vercel project with firewall rules, start
-              by using the <code>download</code> command to set up your local
-              configuration:
-            </p>
-            <pre className="bg-blue-100 p-2 mt-2 rounded-md font-mono text-sm">
-              npx vercel-doorman download --token YOUR_VERCEL_API_TOKEN
-            </pre>
-            <p className="mt-2 text-blue-700">
-              This will generate a <code>vercel-firewall.config.json</code> file
-              with your existing configuration before you proceed.
-            </p>
-          </div>
+          <BoxReveal boxColor="#f3f3f3">
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+              <p className="text-blue-700">
+                <strong>Note for Existing Projects:</strong>
+              </p>
+              <p className="text-blue-700">
+                If you have an existing Vercel project with firewall rules,
+                start by using the <code>download</code> command to set up your
+                local configuration:
+              </p>
+              <pre className="bg-blue-100 p-2 mt-2 rounded-md font-mono text-sm">
+                npx vercel-doorman download --token YOUR_VERCEL_API_TOKEN
+              </pre>
+              <p className="mt-2 text-blue-700">
+                This will generate a <code>vercel-firewall.config.json</code>{" "}
+                file with your existing configuration before you proceed.
+              </p>
+            </div>
+          </BoxReveal>
         </div>
       </section>
 
@@ -218,5 +225,5 @@ export default function GettingStarted() {
         </ul>
       </section>
     </div>
-  );
+  )
 }
