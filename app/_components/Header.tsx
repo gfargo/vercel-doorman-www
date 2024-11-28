@@ -11,7 +11,7 @@ export const Header = () => {
             href="/"
             className="md:text-xl font-bold font-mono"
           >
-            Vercel Doorman
+            Doorman
             <DoorOpenIcon className="w-6 h-6 inline-block ml-2" />
           </Link>
           <div className="flex items-center space-x-8">
