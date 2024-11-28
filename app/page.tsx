@@ -8,22 +8,22 @@ import {
   List,
   Shield,
   Workflow,
-} from "lucide-react";
-import Link from "next/link";
-import { CopyableCommand } from "../components/CopyableCommand";
+} from "lucide-react"
+import Link from "next/link"
+import { CopyableCommand } from "../components/CopyableCommand"
 // import { Marquee } from "../components/ui/marquee";
-import { FeatureCard } from "@/components/FeatureCard";
-import { DownloadFlowBeam } from "@/components/flows/DownloadFlow";
-import { ListFlow } from "@/components/flows/ListFlow";
-import { SyncFlow } from "@/components/flows/SyncFlow";
-import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
-import BlurIn from "@/components/ui/blur-in";
-import BoxReveal from "@/components/ui/box-reveal";
-import { Button } from "@/components/ui/button";
-import DotPattern from "@/components/ui/dot-pattern";
-import Meteors from "@/components/ui/meteors";
-import { cn } from "@/lib/utils";
-import { FeatureSection } from "../components/FeatureSection";
+import { FeatureCard } from "@/components/FeatureCard"
+import { DownloadFlowBeam } from "@/components/flows/DownloadFlow"
+import { ListFlow } from "@/components/flows/ListFlow"
+import { SyncFlow } from "@/components/flows/SyncFlow"
+import AnimatedGridPattern from "@/components/ui/animated-grid-pattern"
+import BlurIn from "@/components/ui/blur-in"
+import BoxReveal from "@/components/ui/box-reveal"
+import { Button } from "@/components/ui/button"
+import DotPattern from "@/components/ui/dot-pattern"
+import Meteors from "@/components/ui/meteors"
+import { cn } from "@/lib/utils"
+import { FeatureSection } from "../components/FeatureSection"
 
 export default function Home() {
   return (
@@ -46,8 +46,15 @@ export default function Home() {
               className="text-6xl font-bold mb-6 text-black dark:text-white bg-gradient-to-b from-black to-gray-900/90 bg-clip-text text-center leading-none text-transparent dark:from-white dark:to-slate-900/10"
             />
             <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-              Manage Vercel Firewall rules as code, enabling version control and
-              automated deployment of your project's security configuration.
+              Manage{" "}
+              <Link
+                href="https://vercel.com/docs/security/vercel-firewall"
+                target="_blank"
+              >
+                Vercel Firewall
+              </Link>{" "}
+              rules as code, enabling version control and automated deployment
+              of your project's security configuration.
             </p>
             <div className="w-full flex justify-center">
               <CopyableCommand
@@ -225,5 +232,5 @@ export default function Home() {
         </section>
       </main>
     </div>
-  );
+  )
 }
