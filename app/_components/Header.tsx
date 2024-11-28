@@ -1,4 +1,4 @@
-import { Github } from "lucide-react";
+import { DoorOpenIcon, Github } from "lucide-react";
 import Link from "next/link";
 
 export const Header = () => {
@@ -10,7 +10,8 @@ export const Header = () => {
             href="/"
             className="text-xl font-bold font-mono"
           >
-            Vercel Doorman
+            Vercel Doorman 
+            <DoorOpenIcon className="w-6 h-6 inline-block ml-2" />
           </Link>
           <div className="flex items-center space-x-8">
             <div className="flex items-center space-x-4">

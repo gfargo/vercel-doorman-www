@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useRef } from "react"
 
-import { AnimatedBeam } from "@/components/ui/animated-beam";
-import { cn } from "@/lib/utils";
-import { VercelLogoIcon } from "@radix-ui/react-icons";
-import { DoorOpenIcon, FileCode2Icon, TableIcon } from "lucide-react";
+import { AnimatedBeam } from "@/components/ui/animated-beam"
+import { cn } from "@/lib/utils"
+import { VercelLogoIcon } from "@radix-ui/react-icons"
+import { DoorOpenIcon, FileCode2Icon, TableIcon } from "lucide-react"
 
 const Circle = forwardRef<
   HTMLDivElement,
@@ -15,23 +15,23 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-primary text-primary-foreground p-3  ",
+        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-primary text-primary-foreground p-3 border-white/80",
         className
       )}
     >
       {children}
     </div>
-  );
-});
+  )
+})
 
-Circle.displayName = "Circle";
+Circle.displayName = "Circle"
 
 export function ListFlow({ className }: { className?: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const div1Ref = useRef<HTMLDivElement>(null);
-  const div2Ref = useRef<HTMLDivElement>(null);
-  const div6Ref = useRef<HTMLDivElement>(null);
-  const div7Ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null)
+  const div1Ref = useRef<HTMLDivElement>(null)
+  const div2Ref = useRef<HTMLDivElement>(null)
+  const div6Ref = useRef<HTMLDivElement>(null)
+  const div7Ref = useRef<HTMLDivElement>(null)
 
   return (
     <div
@@ -99,5 +99,5 @@ export function ListFlow({ className }: { className?: string }) {
         toRef={div7Ref}
       />
     </div>
-  );
+  )
 }

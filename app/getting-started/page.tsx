@@ -60,7 +60,6 @@ export default function GettingStarted() {
             </pre>
             <p className="mt-2">
               Replace <code>prj_</code> and <code>team_</code> with your actual
-              Vercel
               <Link
                 href="https://vercel.com/docs/projects/project-configuration/general-settings#project-id"
                 className="text-blue-600 hover:underline mx-1 font-semibold"
@@ -74,7 +73,7 @@ export default function GettingStarted() {
               >
                 teamId
               </Link>{" "}
-              respectively.
+              from Vercel.
             </p>
           </li>
           <li>

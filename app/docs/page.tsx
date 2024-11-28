@@ -1,63 +1,70 @@
-import Link from "next/link";
+import BoxReveal from "@/components/ui/box-reveal"
+import WordPullUp from "@/components/ui/word-pull-up"
+import { GitHubLogoIcon } from '@radix-ui/react-icons'
+import Link from "next/link"
 
 export default function Docs() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <h1 className="text-4xl font-bold mb-8">Docs</h1>
-
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Table of Contents</h2>
-        <ul className="space-y-2">
-          <li>
-            <Link
-              href="#introduction"
-              className="text-blue-600 hover:underline"
-            >
-              Introduction
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#installation"
-              className="text-blue-600 hover:underline"
-            >
-              Installation
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#configuration"
-              className="text-blue-600 hover:underline"
-            >
-              Configuration
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#environment-variables"
-              className="text-blue-600 hover:underline"
-            >
-              Environment Variables
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#commands"
-              className="text-blue-600 hover:underline"
-            >
-              Commands
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#examples"
-              className="text-blue-600 hover:underline"
-            >
-              Examples
-            </Link>
-          </li>
-        </ul>
-      </section>
+      <WordPullUp
+        words="Docs"
+        className="text-2xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-4xl md:leading-[5rem]"
+      />
+      <BoxReveal boxColor='#f3f3f3'>
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-600">Table of Contents</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                href="#introduction"
+                className="text-gray-400 hover:underline hover:text-gray-600"
+              >
+                Introduction
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#installation"
+                className="text-gray-400 hover:underline hover:text-gray-600"
+              >
+                Installation
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#configuration"
+                className="text-gray-400 hover:underline hover:text-gray-600"
+              >
+                Configuration
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#environment-variables"
+                className="text-gray-400 hover:underline hover:text-gray-600"
+              >
+                Environment Variables
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#commands"
+                className="text-gray-400 hover:underline hover:text-gray-600"
+              >
+                Commands
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#examples"
+                className="text-gray-400 hover:underline hover:text-gray-600"
+              >
+                Examples
+              </Link>
+            </li>
+          </ul>
+        </section>
+      </BoxReveal>
 
       <section
         id="introduction"
@@ -80,7 +87,7 @@ export default function Docs() {
           To install Vercel Doorman, please refer to our{" "}
           <Link
             href="/getting-started"
-            className="text-blue-600 hover:underline"
+            className="text-blue-600 hover:underline font-semibold"
           >
             Getting Started
           </Link>{" "}
@@ -94,9 +101,11 @@ export default function Docs() {
       >
         <h2 className="text-2xl font-semibold mb-4">Configuration</h2>
         <p>
-          Vercel Doorman uses a <code>vercel-firewall.config.json</code> file to
-          define your firewall rules. Create this file in your project root with
-          the following structure:
+          Vercel Doorman uses a{" "}
+          <code className="bg-gray-50 p-1 rounded-md border border-solid select-all ">
+            vercel-firewall.config.json
+          </code>{" "}
+          config file in your project root to define your firewall rules.
         </p>
         <pre className="bg-gray-100 p-4 rounded-md mt-4 font-mono text-sm">
           {`{
@@ -122,7 +131,7 @@ export default function Docs() {
           contains your firewall rules. For more examples, see the{" "}
           <Link
             href="#examples"
-            className="text-blue-600 hover:underline"
+            className="text-blue-600 hover:underline font-semibold"
           >
             Examples
           </Link>{" "}
@@ -130,10 +139,18 @@ export default function Docs() {
         </p>
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 mt-6">
           <p className=" text-blue-700">
-            If you have a pre-existing firewall configuration for your Vercel
-            project, we recommend using the <code>download</code> command to get
-            started. This will fetch your current rules and create a local{" "}
-            <code>vercel-firewall.config.json</code> file.
+            💬 If you have a pre-existing ▴ firewall, we recommend using the{" "}
+            <code className="bg-gray-50 p-1 rounded-md border border-solid">
+              download
+            </code>{" "}
+            command to get started...
+          </p>
+          <p className="text-blue-700 text-xs mt-4">
+            Fetches your current rules and creates/updates a local{" "}
+            <code className="bg-gray-50 p-1 rounded-md border border-solid select-all">
+              vercel-firewall.config.json
+            </code>{" "}
+            file.
           </p>
         </div>
       </section>
@@ -144,13 +161,19 @@ export default function Docs() {
       >
         <h2 className="text-2xl font-semibold mb-4">Environment Variables</h2>
         <p>
-          Vercel Doorman can use environment variables stored in a{" "}
-          <code>.env</code> file in your project root. This allows you to
-          securely manage your Vercel API token and project/team IDs without
-          hardcoding them in your configuration or commands.
+          Variables can be provided in any way that makes them available in the
+          current environment, such as through a{" "}
+          <code className="bg-gray-50 p-1 rounded-md border border-solid">
+            .env
+          </code>{" "}
+          file, shell exports, or CI/CD environment settings.
         </p>
         <p className="mt-4">
-          Create a <code>.env</code> file in your project root with the
+          If you prefer to use a{" "}
+          <code className="bg-gray-50 p-1 rounded-md border border-solid">
+            .env
+          </code>{" "}
+          file, you can create one in your project's root directory with the
           following content:
         </p>
         <pre className="bg-gray-100 p-4 rounded-md mt-4 font-mono text-sm">
@@ -158,15 +181,23 @@ export default function Docs() {
 VERCEL_PROJECT_ID=your_project_id
 VERCEL_TEAM_ID=your_team_id`}
         </pre>
+
         <p className="mt-4">
           Replace the values with your actual Vercel API token, project ID, and
           team ID. When these environment variables are set, you don't need to
           include them in your commands or configuration file.
         </p>
         <p className="mt-4">
-          <strong>Note:</strong> Make sure to add <code>.env</code> to your{" "}
-          <code>.gitignore</code> file to prevent sensitive information from
-          being committed to your repository.
+          <strong>Note:</strong> Make sure to add{" "}
+          <code className="bg-gray-50 p-1 rounded-md border border-solid">
+            .env
+          </code>{" "}
+          to your{" "}
+          <code className="bg-gray-50 p-1 rounded-md border border-solid">
+            .gitignore
+          </code>{" "}
+          file to prevent sensitive information from being committed to your
+          repository.
         </p>
       </section>
 
@@ -229,15 +260,11 @@ VERCEL_TEAM_ID=your_team_id`}
       >
         <h2 className="text-2xl font-semibold mb-4">Examples</h2>
         <p className="mb-4">
-          We provide a variety of example configurations to help you get
-          started. You can find these in our{" "}
-          <Link
+          We provide a variety of <Link
             href="https://github.com/gfargo/vercel-doorman/tree/main/examples"
-            className="text-blue-600 hover:underline"
-          >
-            examples folder on GitHub
-          </Link>
-          .
+            className="text-blue-600 hover:underline font-semibold"
+          >example configurations</Link> on <GitHubLogoIcon className="w-4 h-4 inline-block" /> to help you get
+          started. 
         </p>
         <h3 className="text-xl font-semibold mb-2">Basic Rules</h3>
         <ul className="list-disc list-inside space-y-2 mb-4">
@@ -319,5 +346,5 @@ VERCEL_TEAM_ID=your_team_id`}
         </ul>
       </section>
     </div>
-  );
+  )
 }

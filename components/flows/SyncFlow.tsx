@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useRef } from "react"
 
-import { AnimatedBeam } from "@/components/ui/animated-beam";
-import { cn } from "@/lib/utils";
-import { VercelLogoIcon } from "@radix-ui/react-icons";
-import { Code2Icon, DoorOpenIcon } from "lucide-react";
+import { AnimatedBeam } from "@/components/ui/animated-beam"
+import { cn } from "@/lib/utils"
+import { VercelLogoIcon } from "@radix-ui/react-icons"
+import { Code2Icon, DoorOpenIcon } from "lucide-react"
 
 const Circle = forwardRef<
   HTMLDivElement,
@@ -15,22 +15,22 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-primary text-primary-foreground p-3  ",
+        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-primary text-primary-foreground p-3 border-white/80",
         className
       )}
     >
       {children}
     </div>
-  );
-});
+  )
+})
 
-Circle.displayName = "Circle";
+Circle.displayName = "Circle"
 
 export function SyncFlow({ className }: { className?: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const div1Ref = useRef<HTMLDivElement>(null);
-  const div2Ref = useRef<HTMLDivElement>(null);
-  const div3Ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null)
+  const div1Ref = useRef<HTMLDivElement>(null)
+  const div2Ref = useRef<HTMLDivElement>(null)
+  const div3Ref = useRef<HTMLDivElement>(null)
 
   return (
     <div
@@ -62,6 +62,9 @@ export function SyncFlow({ className }: { className?: string }) {
         fromRef={div1Ref}
         // @ts-expect-error - TS doesn't like the ref type
         toRef={div3Ref}
+        startYOffset={5}
+        endYOffset={5}
+        curvature={-60}
         reverse
       />
       <AnimatedBeam
@@ -72,6 +75,9 @@ export function SyncFlow({ className }: { className?: string }) {
         toRef={div1Ref}
         // @ts-expect-error - TS doesn't like the ref type
         fromRef={div3Ref}
+        startYOffset={-5}
+        endYOffset={-5}
+        curvature={60}
       />
       <AnimatedBeam
         pathWidth={3}
@@ -81,9 +87,9 @@ export function SyncFlow({ className }: { className?: string }) {
         fromRef={div1Ref}
         // @ts-expect-error - TS doesn't like the ref type
         toRef={div2Ref}
-        startYOffset={10}
-        endYOffset={10}
-        curvature={-20}
+        startYOffset={5}
+        endYOffset={5}
+        curvature={-60}
       />
       <AnimatedBeam
         pathWidth={3}
@@ -93,11 +99,11 @@ export function SyncFlow({ className }: { className?: string }) {
         fromRef={div1Ref}
         // @ts-expect-error - TS doesn't like the ref type
         toRef={div2Ref}
-        startYOffset={-10}
-        endYOffset={-10}
-        curvature={20}
+        startYOffset={-5}
+        endYOffset={-5}
+        curvature={60}
         reverse
       />
     </div>
-  );
+  )
 }
