@@ -39,13 +39,13 @@ export default function Home() {
         )}
       />
       <main className="">
-        <section className="container mx-auto relative text-center py-24 mb-16 overflow-hidden">
+        <section className="container px-4 md:px-0 mx-auto relative text-center py-24 mb-16 overflow-hidden">
           <div className="relative z-10">
             <BlurIn
               word="Your ▲ Firewall as Config"
               className="text-6xl font-bold mb-6 text-black dark:text-white bg-gradient-to-b from-black to-gray-900/90 bg-clip-text text-center leading-none text-transparent dark:from-white dark:to-slate-900/10"
             />
-            <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mt-8 md:mt-0 mb-12 max-w-2xl mx-auto">
               Manage{" "}
               <Link
                 className="text-gray-800 underline hover:text-gray-400 hover:no-underline"
@@ -70,7 +70,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container mx-auto grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-8 space-y-8 lg:space-y-0 mb-24 xl:px-4">
+        <section className="container px-4 md:px-0 mx-auto grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-8 space-y-8 lg:space-y-0 mb-24 xl:px-4">
           <FeatureCard
             icon={<GitBranch className="w-6 h-6" />}
             title="Version Control"
@@ -88,7 +88,7 @@ export default function Home() {
           />
         </section>
 
-        <section className="container mx-auto mb-24 pb-16 relative overflow-hidden">
+        <section className="container px-4 md:px-0  mx-auto mb-24 pb-16 relative overflow-hidden">
           <AnimatedGridPattern
             numSquares={100}
             maxOpacity={0.15}

@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
         <Header />
-        <main>{children}</main>
+        <main className='relative z-10'>{children}</main>
         <Footer />
         <Toaster />
       </body>

@@ -145,7 +145,7 @@ export default function Docs() {
             </code>{" "}
             command to get started...
           </p>
-          <p className="text-blue-700 text-xs mt-4">
+          <p className="text-blue-700 text-xs mt-4 leading-loose md:leading-normal">
             Fetches your current rules and creates/updates a local{" "}
             <code className="bg-gray-50 p-1 rounded-md border border-solid select-all">
               vercel-firewall.config.json
