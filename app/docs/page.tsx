@@ -1,6 +1,10 @@
 import BoxReveal from "@/components/ui/box-reveal"
 import WordPullUp from "@/components/ui/word-pull-up"
-import { GitHubLogoIcon } from '@radix-ui/react-icons'
+import {
+  GitHubLogoIcon,
+  Link1Icon,
+  VercelLogoIcon,
+} from "@radix-ui/react-icons"
 import Link from "next/link"
 
 export default function Docs() {
@@ -10,9 +14,11 @@ export default function Docs() {
         words="Docs"
         className="text-2xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-4xl md:leading-[5rem]"
       />
-      <BoxReveal boxColor='#f3f3f3'>
+      <BoxReveal boxColor="#f3f3f3">
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-600">Table of Contents</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-600">
+            Table of Contents
+          </h2>
           <ul className="space-y-2">
             <li>
               <Link
@@ -113,16 +119,33 @@ export default function Docs() {
   "teamId": "team_...",
   "rules": [
     {
-      "type": "country",
-      "action": "block",
-      "countries": ["US", "CA"]
-    },
-    {
-      "type": "ip",
-      "action": "allow",
-      "ip": "203.0.113.0"
+      "name": "Block API Access",
+      "description": "Block access to API endpoints",
+      "conditionGroup": [
+        {
+          "conditions": [
+            {
+              "type": "path",
+              "op": "pre",
+              "value": "/api"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "mitigate": {
+          "action": "deny",
+          "rateLimit": {
+            "requests": 100,
+            "window": "1m"
+          },
+          "actionDuration": "1h"
+        }
+      },
+      "active": true
     }
-  ]
+  ],
+  "ips": []
 }`}
         </pre>
         <p className="mt-4">
@@ -139,7 +162,9 @@ export default function Docs() {
         </p>
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 mt-6">
           <p className=" text-blue-700">
-            💬 If you have a pre-existing ▴ firewall, we recommend using the{" "}
+            💬 If you have a pre-existing{" "}
+            <VercelLogoIcon className="inline-block" /> firewall, we recommend
+            using the{" "}
             <code className="bg-gray-50 p-1 rounded-md border border-solid">
               download
             </code>{" "}
@@ -208,50 +233,162 @@ VERCEL_TEAM_ID=your_team_id`}
         <h2 className="text-2xl font-semibold mb-4">Commands</h2>
         <ul className="space-y-4">
           <li>
-            <strong>sync</strong>: Synchronize your local configuration with
-            Vercel
+            <strong className="text-2xl md:text-4xl mr-3 opacity-40">
+              list
+            </strong>{" "}
+            List firewall rules, either the current active configuration or a
+            specific version
             <pre className="bg-gray-100 p-2 rounded-md mt-2 font-mono text-sm">
-              npx vercel-doorman sync
+              {`# List current active rules
+npx vercel-doorman list
+
+# List rules from a specific version
+npx vercel-doorman list 1
+
+# List specific version in JSON format
+npx vercel-doorman list 2 --format json`}
             </pre>
           </li>
           <li>
-            <strong>list</strong>: List current firewall rules
+            <strong className="text-2xl md:text-4xl mr-3 opacity-40">
+              sync
+            </strong>{" "}
+            Synchronize your local configuration with Vercel
             <pre className="bg-gray-100 p-2 rounded-md mt-2 font-mono text-sm">
-              npx vercel-doorman list
+              npx vercel-doorman sync --token YOUR_TOKEN
             </pre>
+            <div className="mt-2">
+              <i className="opacity-45">Options:</i>
+              <ul className="list-disc list-inside ml-4 mt-1">
+                <li>
+                  <code>--config, -c</code>: Path to config file
+                </li>
+                <li>
+                  <code>--projectId, -p</code>: Vercel Project ID
+                </li>
+                <li>
+                  <code>--teamId, -t</code>: Vercel Team ID
+                </li>
+                <li>
+                  <code>--token</code>: Vercel API token
+                </li>
+              </ul>
+            </div>
           </li>
           <li>
-            <strong>download</strong>: Download existing firewall rules from
-            Vercel
+            <strong className="text-2xl md:text-4xl mr-3 opacity-40">
+              download
+            </strong>{" "}
+            Download firewall rules from your Vercel project
             <pre className="bg-gray-100 p-2 rounded-md mt-2 font-mono text-sm">
-              npx vercel-doorman download
+              {`# Preview changes without modifying config
+npx vercel-doorman download --dry-run
+
+# Download and update config
+npx vercel-doorman download
+
+# Download specific version
+npx vercel-doorman download 1`}
             </pre>
-            <p className="mt-2">
-              Use this command to get started with an existing Vercel firewall
-              configuration.
-            </p>
+            <div className="mt-2">
+              <i className="opacity-45">Options:</i>
+              <ul className="list-disc list-inside ml-4 mt-1">
+                <li>
+                  <code>configVersion</code>: Optional version number
+                </li>
+                <li>
+                  <code>--dry-run, -d</code>: Preview changes
+                </li>
+                <li>
+                  <code>--config, -c</code>: Path to config file
+                </li>
+                <li>
+                  <code>--token</code>: Vercel API token
+                </li>
+              </ul>
+            </div>
           </li>
           <li>
-            <strong>validate</strong>: Validate your local
-            vercel-firewall.config.json file
+            <strong className="text-2xl md:text-4xl mr-3 opacity-40">
+              template
+            </strong>{" "}
+            Add predefined rule templates to your configuration
             <pre className="bg-gray-100 p-2 rounded-md mt-2 font-mono text-sm">
-              npx vercel-doorman validate
+              {` # List available templates
+npx vercel-doorman template
+
+# Add specific template
+npx vercel-doorman template wordpress`}
             </pre>
-            <p className="mt-2">
-              This command checks your local configuration file for errors
-              before you sync it with Vercel.
-            </p>
+            <div className="mt-2">
+              <p className="w-full flex items-center gap-2">
+                <span className="italic">Available Templates</span>{" "}
+                <Link
+                  href={
+                    "https://github.com/gfargo/vercel-doorman/tree/main/src/lib/templates"
+                  }
+                >
+                  <Link1Icon />
+                </Link>
+              </p>
+              <ul className="list-disc list-inside ml-4 mt-1">
+                <li>
+                  <code>bad-bots</code>: Block common malicious bot traffic
+                </li>
+                <li>
+                  <code>ai-bots</code>: Block AI crawlers and scrapers
+                </li>
+                <li>
+                  <code>wordpress</code>: Block WordPress-related URLs
+                </li>
+                <li>
+                  <code>block-ofac-sanctioned-countries</code>: OFAC compliance
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <strong className="text-2xl md:text-4xl mr-3 opacity-40">
+              validate
+            </strong>{" "}
+            Validate your configuration file
+            <pre className="bg-gray-100 p-2 rounded-md mt-2 font-mono text-sm">
+              {`npx vercel-doorman validate
+
+# Show detailed validation results
+npx vercel-doorman validate --verbose`}
+            </pre>
+            <div className="mt-2">
+              <i className="opacity-45">Options:</i>
+              <ul className="list-disc list-inside ml-4 mt-1">
+                <li>
+                  <code>--config, -c</code>: Path to config file
+                </li>
+                <li>
+                  <code>--verbose, -v</code>: Show detailed results
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
-        <p className="mt-4">
-          <strong className="mr-1">Authentication Token:</strong>
-          If you haven&apos;t set up environment variables, you can also pass
-          the Vercel API token directly in the command using the{" "}
-          <code>--token</code> flag:
-        </p>
-        <pre className="bg-gray-100 p-2 rounded-md mt-2 font-mono text-sm">
-          npx vercel-doorman sync --token YOUR_VERCEL_API_TOKEN
-        </pre>
+        <div className="bg-gray-50 border-l-4 border-gray-500 p-4 mt-6">
+          <p className="font-semibold">Environment Variables</p>
+          <p className="mt-2">
+            Instead of passing command-line arguments, you can set these
+            environment variables:
+          </p>
+          <ul className="list-disc list-inside ml-4 mt-1">
+            <li>
+              <code>VERCEL_TOKEN</code>: Your Vercel API token
+            </li>
+            <li>
+              <code>VERCEL_PROJECT_ID</code>: Your Vercel project ID
+            </li>
+            <li>
+              <code>VERCEL_TEAM_ID</code>: Your Vercel team ID
+            </li>
+          </ul>
+        </div>
       </section>
 
       <section
@@ -260,11 +397,15 @@ VERCEL_TEAM_ID=your_team_id`}
       >
         <h2 className="text-2xl font-semibold mb-4">Examples</h2>
         <p className="mb-4">
-          We provide a variety of <Link
+          We provide a variety of{" "}
+          <Link
             href="https://github.com/gfargo/vercel-doorman/tree/main/examples"
             className="text-blue-600 hover:underline font-semibold"
-          >example configurations</Link> on <GitHubLogoIcon className="w-4 h-4 inline-block" /> to help you get
-          started. 
+          >
+            example configurations
+          </Link>{" "}
+          on <GitHubLogoIcon className="w-4 h-4 inline-block" /> to help you get
+          started.
         </p>
         <h3 className="text-xl font-semibold mb-2">Basic Rules</h3>
         <ul className="list-disc list-inside space-y-2 mb-4">

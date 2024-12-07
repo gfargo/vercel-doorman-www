@@ -38,7 +38,7 @@ export default function GettingStarted() {
                 local configuration:
               </p>
               <pre className="bg-blue-100 p-2 mt-2 rounded-md font-mono text-sm">
-                npx vercel-doorman download --token YOUR_VERCEL_API_TOKEN
+                npx vercel-doorman download
               </pre>
               <p className="mt-2 text-blue-700">
                 This will generate a <code>vercel-firewall.config.json</code>{" "}
@@ -62,7 +62,8 @@ export default function GettingStarted() {
               {`{
   "projectId": "prj_",
   "teamId": "team_",
-  "rules": [ ... your rules here ... ]
+  "rules": [],
+  "ips": []
 }`}
             </pre>
             <p className="mt-2">
@@ -84,14 +85,73 @@ export default function GettingStarted() {
             </p>
           </li>
           <li>
-            <strong>Configure your firewall rules:</strong>
-            <p>
-              Edit the <code>rules</code> array in your{" "}
-              <code>vercel-firewall.config.json</code> file to define your
-              firewall rules.
-            </p>
+            <strong>Add firewall rules:</strong>
             <p className="mt-2">
-              For example configurations, visit our{" "}
+              You can add rules in two ways:
+            </p>
+            <ul className="list-disc list-inside ml-4 mt-2 space-y-4">
+              <li>
+                <strong>Using Templates:</strong>
+                <p className="mt-1">
+                  Use the <code>template</code> command to add predefined rules:
+                </p>
+                <pre className="bg-gray-100 p-2 rounded-md mt-2 font-mono text-sm">
+                  {`# List available templates
+npx vercel-doorman template
+
+# Add WordPress protection
+npx vercel-doorman template wordpress
+
+# Block AI bots
+npx vercel-doorman template ai-bots`}
+                </pre>
+              </li>
+              <li>
+                <strong>Manual Configuration:</strong>
+                <p className="mt-1">
+                  Add rules directly to your config file following this structure:
+                </p>
+                <pre className="bg-gray-100 p-2 rounded-md mt-2 font-mono text-sm overflow-x-auto">
+                  {`{
+  "name": "Block API Access",
+  "description": "Block access to API endpoints",
+  "conditionGroup": [
+    {
+      "conditions": [
+        {
+          "type": "path",
+          "op": "pre",
+          "value": "/api"
+        }
+      ]
+    }
+  ],
+  "action": {
+    "mitigate": {
+      "action": "deny",
+      "rateLimit": {
+        "requests": 100,
+        "window": "1m"
+      },
+      "actionDuration": "1h"
+    }
+  },
+  "active": true
+}`}
+                </pre>
+              </li>
+            </ul>
+            <div className="bg-gray-50 border-l-4 border-gray-500 p-4 mt-4">
+              <p className="font-semibold">Rule Components:</p>
+              <ul className="list-disc list-inside ml-4 mt-2">
+                <li><strong>Condition Groups:</strong> Define when rules trigger (AND within groups, OR between groups)</li>
+                <li><strong>Conditions:</strong> Match criteria using <code>type</code>, <code>op</code>, and <code>value</code></li>
+                <li><strong>Actions:</strong> Define response (<code>deny</code>, <code>challenge</code>, <code>rateLimit</code>, <code>rewrite</code>)</li>
+                <li><strong>Metadata:</strong> Rule information (<code>name</code>, <code>description</code>, <code>active</code>)</li>
+              </ul>
+            </div>
+            <p className="mt-4">
+              For more examples and templates, visit our{" "}
               <Link
                 href="https://github.com/gfargo/vercel-doorman/tree/main/examples"
                 className="text-blue-600 hover:underline font-semibold"
@@ -146,51 +206,124 @@ export default function GettingStarted() {
 
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Common Rule Examples</h2>
-        <p className="mb-4">
-          Here are some common rule configurations you might find useful:
-        </p>
-        <ul className="list-disc list-inside space-y-2">
-          <li>
-            <strong>IP Blocking:</strong>{" "}
-            <Link
-              href="https://github.com/gfargo/vercel-doorman/blob/main/examples/ip-block.json"
-              className="text-blue-600 hover:underline"
-            >
-              ip-block.json
-            </Link>{" "}
-            - Basic IP address blocking
-          </li>
-          <li>
-            <strong>Path Protection:</strong>{" "}
-            <Link
-              href="https://github.com/gfargo/vercel-doorman/blob/main/examples/path-protection.json"
-              className="text-blue-600 hover:underline"
-            >
-              path-protection.json
-            </Link>{" "}
-            - Path-based access control
-          </li>
-          <li>
-            <strong>Geo-blocking:</strong>{" "}
-            <Link
-              href="https://github.com/gfargo/vercel-doorman/blob/main/examples/geo-blocking.json"
-              className="text-blue-600 hover:underline"
-            >
-              geo-blocking.json
-            </Link>{" "}
-            - Geographic location based rules
-          </li>
-          <li>
-            <strong>Method Restriction:</strong>{" "}
-            <Link
-              href="https://github.com/gfargo/vercel-doorman/blob/main/examples/method-restriction.json"
-              className="text-blue-600 hover:underline"
-            >
-              method-restriction.json
-            </Link>{" "}
-            - HTTP method restrictions
-          </li>
-        </ul>
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Basic Protection</h3>
+            <ul className="list-disc list-inside space-y-2">
+              <li>
+                <Link
+                  href="https://github.com/gfargo/vercel-doorman/blob/main/examples/ip-block.json"
+                  className="text-blue-600 hover:underline"
+                >
+                  ip-block.json
+                </Link>{" "}
+                - Block specific IP addresses
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/gfargo/vercel-doorman/blob/main/examples/path-protection.json"
+                  className="text-blue-600 hover:underline"
+                >
+                  path-protection.json
+                </Link>{" "}
+                - Secure specific URL paths
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/gfargo/vercel-doorman/blob/main/examples/geo-blocking.json"
+                  className="text-blue-600 hover:underline"
+                >
+                  geo-blocking.json
+                </Link>{" "}
+                - Country-based access control
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/gfargo/vercel-doorman/blob/main/examples/method-restriction.json"
+                  className="text-blue-600 hover:underline"
+                >
+                  method-restriction.json
+                </Link>{" "}
+                - Limit HTTP methods
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Advanced Security</h3>
+            <ul className="list-disc list-inside space-y-2">
+              <li>
+                <Link
+                  href="https://github.com/gfargo/vercel-doorman/blob/main/examples/rate-limiting.json"
+                  className="text-blue-600 hover:underline"
+                >
+                  rate-limiting.json
+                </Link>{" "}
+                - Prevent abuse through rate limits
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/gfargo/vercel-doorman/blob/main/examples/redirect-rules.json"
+                  className="text-blue-600 hover:underline"
+                >
+                  redirect-rules.json
+                </Link>{" "}
+                - Traffic redirection examples
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/gfargo/vercel-doorman/blob/main/examples/challenge-rules.json"
+                  className="text-blue-600 hover:underline"
+                >
+                  challenge-rules.json
+                </Link>{" "}
+                - Bot prevention with challenges
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/gfargo/vercel-doorman/blob/main/examples/conditional-rules.json"
+                  className="text-blue-600 hover:underline"
+                >
+                  conditional-rules.json
+                </Link>{" "}
+                - Complex rule combinations
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Specialized Rules</h3>
+            <ul className="list-disc list-inside space-y-2">
+              <li>
+                <Link
+                  href="https://github.com/gfargo/vercel-doorman/blob/main/examples/user-agent-filtering.json"
+                  className="text-blue-600 hover:underline"
+                >
+                  user-agent-filtering.json
+                </Link>{" "}
+                - Filter by browser/client type
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/gfargo/vercel-doorman/blob/main/examples/header-based-rules.json"
+                  className="text-blue-600 hover:underline"
+                >
+                  header-based-rules.json
+                </Link>{" "}
+                - Rules based on HTTP headers
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/gfargo/vercel-doorman/blob/main/examples/mixed-rules.json"
+                  className="text-blue-600 hover:underline"
+                >
+                  mixed-rules.json
+                </Link>{" "}
+                - Multiple protection layers
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section className="mb-12">

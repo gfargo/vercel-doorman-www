@@ -1,13 +1,15 @@
 import {
   Book,
   ChevronRight,
-  Download,
+  DownloadCloudIcon,
   ExternalLink,
+  FileJsonIcon,
   FolderSyncIcon,
   GitBranch,
-  List,
+  ListTodoIcon,
+  ScanEyeIcon,
   Shield,
-  Workflow,
+  Workflow
 } from "lucide-react"
 import Link from "next/link"
 import { CopyableCommand } from "../components/CopyableCommand"
@@ -16,6 +18,8 @@ import { FeatureCard } from "@/components/FeatureCard"
 import { DownloadFlowBeam } from "@/components/flows/DownloadFlow"
 import { ListFlow } from "@/components/flows/ListFlow"
 import { SyncFlow } from "@/components/flows/SyncFlow"
+import { TemplateFlow } from "@/components/flows/TemplateFlow"
+import { ValidateFlow } from "@/components/flows/ValidateFlow"
 import AnimatedGridPattern from "@/components/ui/animated-grid-pattern"
 import BlurIn from "@/components/ui/blur-in"
 import BoxReveal from "@/components/ui/box-reveal"
@@ -124,7 +128,7 @@ export default function Home() {
               title="Download Rules"
               direction="right"
               description="Import existing firewall rules from a Vercel project. Seamlessly transition your current setup into a version-controlled environment."
-              icon={<Download className="w-6 h-6" />}
+              icon={<DownloadCloudIcon className="w-6 h-6" />}
               flow={<DownloadFlowBeam />}
               imageSrc="/gifs/demo-download.gif"
               command={[
@@ -143,7 +147,7 @@ export default function Home() {
             <FeatureSection
               title="List Rules"
               description="View current firewall rules in table or JSON format. Easily inspect and understand your security configurations at a glance."
-              icon={<List className="w-6 h-6" />}
+              icon={<ListTodoIcon className="w-6 h-6" />}
               flow={<ListFlow />}
               imageSrc="/gifs/demo-list2.gif"
               command={[
@@ -156,6 +160,47 @@ export default function Home() {
                 {
                   value: "bun",
                   command: "bunx --bun vercel-doorman@latest list",
+                },
+              ]}
+            />
+            <FeatureSection
+              title="Validate Rules"
+              direction="right"
+              description="Check your local configuration for errors and inconsistencies. Ensure your firewall rules are valid before deploying to Vercel."
+              icon={<ScanEyeIcon className="w-6 h-6" />}
+              flow={<ValidateFlow />}
+              // TODO REPLACE WITH NEW GIF
+              imageSrc="/gifs/demo-download.gif"
+              command={[
+                { value: "npm", command: "npx vercel-doorman validate" },
+                { value: "yarn", command: "npx vercel-doorman validate" },
+                {
+                  value: "pnpm",
+                  command: "pnpm dlx vercel-doorman@latest validate",
+                },
+                {
+                  value: "bun",
+                  command: "bunx --bun vercel-doorman@latest validate",
+                },
+              ]}
+            />
+            <FeatureSection
+              title="Template Support"
+              description="Get started quickly with pre-configured templates for common use cases. Customize and extend templates to fit your project's needs."
+              icon={<FileJsonIcon className="w-6 h-6" />}
+              flow={<TemplateFlow />}
+              // TODO REPLACE WITH NEW GIF
+              imageSrc="/gifs/demo-sync.gif"
+              command={[
+                { value: "npm", command: "npx vercel-doorman template" },
+                { value: "yarn", command: "npx vercel-doorman template" },
+                {
+                  value: "pnpm",
+                  command: "pnpm dlx vercel-doorman@latest template",
+                },
+                {
+                  value: "bun",
+                  command: "bunx --bun vercel-doorman@latest template",
                 },
               ]}
             />

@@ -59,20 +59,24 @@ export function InteractiveImage({ src, alt, flow }: InteractiveImageProps) {
           scale,
         }}
         // @ts-ignore  type error
-        className="relative w-full h-[300px] rounded-lg overflow-hidden   border border-solid shadow-md"
+        className="relative w-full h-[300px] rounded-lg overflow-hidden border border-solid shadow-md"
       >
         <div className="w-full h-full inset-0 absolute z-10 flex flex-col items-center justify-center p-8">
           {flow}
         </div>
-
         <Image
           src={src}
           alt={alt}
           width={1280}
           height={600}
-          style={{ objectFit: "initial", scale: 2.5, transformOrigin: "0% 15%", opacity: 0.8 }}
+          style={{
+            objectFit: "initial",
+            scale: 4.5,
+            transformOrigin: "5% 19%",
+            transform: "rotate3d(4, -1, -1, -0.2turn"
+          }}
           sizes="(max-width: 668px) 100vw, (max-width: 1200px) 100vw, 33vw"
-          className="relative z-0"
+          className="relative z-0 opacity-80 hover:opacity-100"
           unoptimized
         />
       </motion.div>
