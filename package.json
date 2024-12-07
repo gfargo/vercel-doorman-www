@@ -4,7 +4,10 @@
     "dev": "next dev --turbo",
     "prebuild": "node ./prebuild.mjs",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "firewall:list": "vercel-doorman list",
+    "firewall:download": "vercel-doorman download",
+    "firewall:sync": "vercel-doorman sync"
   },
   "type": "module",
   "dependencies": {
@@ -45,6 +48,7 @@
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-react-aria-components": "1.1.6",
     "typescript": "^5.6.3",
+    "vercel-doorman": "^1.5.3",
     "zod": "^3.23.8"
   }
 }

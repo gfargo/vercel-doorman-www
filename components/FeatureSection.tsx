@@ -38,7 +38,6 @@ export function FeatureSection({
               className="text-2xl font-bold ml-4 tracking-[-0.02em] text-black dark:text-white md:text-4xl md:leading-[5rem]"
               words={title}
             />
-            {/* <h3 className="text-2xl font-bold ml-4">{title}</h3> */}
           </div>
           <p className="text-gray-600 mb-4">{description}</p>
           <CopyableCommand command={command} />
