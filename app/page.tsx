@@ -9,7 +9,7 @@ import {
   ListTodoIcon,
   ScanEyeIcon,
   Shield,
-  Workflow
+  Workflow,
 } from "lucide-react"
 import Link from "next/link"
 import { CopyableCommand } from "../components/CopyableCommand"
@@ -25,8 +25,10 @@ import BlurIn from "@/components/ui/blur-in"
 import BoxReveal from "@/components/ui/box-reveal"
 import { Button } from "@/components/ui/button"
 import DotPattern from "@/components/ui/dot-pattern"
+import HyperText from "@/components/ui/hyper-text"
 import Meteors from "@/components/ui/meteors"
 import { cn } from "@/lib/utils"
+import { DoubleArrowDownIcon } from "@radix-ui/react-icons"
 import { FeatureSection } from "../components/FeatureSection"
 
 export default function Home() {
@@ -103,7 +105,14 @@ export default function Home() {
               "inset-x-0 inset-y-[-30%] h-[180%] skew-y-12"
             )}
           />
-          <h2 className="text-3xl font-bold my-16 text-center">Key Features</h2>
+
+          <div className="my-16 text-center text-gray-500 flex self-center flex-col justify-center items-center">
+            <HyperText
+              className="text-xs font-bold dark:text-white w-auto"
+              text={"FEATURES"}
+            />
+            <DoubleArrowDownIcon className="w-3 h-3 mt-3" />
+          </div>
           <div className="space-y-24 relative z-10 pb-24 lg:px-8">
             <FeatureSection
               title="Sync Rules"
@@ -185,7 +194,7 @@ export default function Home() {
               ]}
             />
             <FeatureSection
-              title="Template Support"
+              title="Templates"
               description="Get started quickly with pre-configured templates for common use cases. Customize and extend templates to fit your project's needs."
               icon={<FileJsonIcon className="w-6 h-6" />}
               flow={<TemplateFlow />}

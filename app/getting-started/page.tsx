@@ -191,9 +191,10 @@ npx vercel-doorman template ai-bots`}
             <pre className="bg-gray-100 p-4 rounded-md mt-2 font-mono text-sm">
               {`"scripts": {
     ... other scripts ...
-    "firewall:list": "vercel-doorman list --token YOUR_VERCEL_API_TOKEN",
-    "firewall:sync": "vercel-doorman sync --token YOUR_VERCEL_API_TOKEN",
-    "firewall:download": "vercel-doorman download --token YOUR_VERCEL_API_TOKEN"
+    "firewall:list": "vercel-doorman list",
+    "firewall:download": "vercel-doorman download",
+    "firewall:sync": "vercel-doorman sync",
+    "firewall:validate": "vercel-doorman validate"
 }`}
             </pre>
             <p className="mt-2">

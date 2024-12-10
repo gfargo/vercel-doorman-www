@@ -60,7 +60,7 @@ export function TemplateFlow({ className }: { className?: string }) {
             ref={div6Ref}
             className="size-16"
           >
-            <DoorOpenIcon />
+            <DoorOpenIcon className="w-4 h-4" />
           </Circle>
         </div>
         <div className="flex flex-col justify-center gap-2">
