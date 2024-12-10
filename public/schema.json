@@ -13,8 +13,14 @@
         "teamId": {
           "type": "string"
         },
+        "$schema": {
+          "type": "string"
+        },
         "version": {
           "type": "number"
+        },
+        "firewallEnabled": {
+          "type": "boolean"
         },
         "rules": {
           "type": "array",
@@ -33,7 +39,8 @@
         }
       },
       "required": ["rules"],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "The main configuration type for Vercel Doorman"
     },
     "CustomRule": {
       "type": "object",
@@ -83,6 +90,9 @@
         "op": {
           "$ref": "#/definitions/RuleOperator"
         },
+        "neg": {
+          "type": "boolean"
+        },
         "type": {
           "$ref": "#/definitions/RuleType"
         },
@@ -118,7 +128,7 @@
     },
     "RuleOperator": {
       "type": "string",
-      "enum": ["re", "eq", "neq", "ex", "nex", "inc", "ninc", "pre", "suf", "sub", "gt", "gte", "lt", "lte"]
+      "enum": ["eq", "pre", "suf", "inc", "sub", "re", "ex", "nex"]
     },
     "RuleType": {
       "type": "string",
