@@ -48,7 +48,7 @@ export default function Home() {
         <section className="container px-4 md:px-0 mx-auto relative text-center py-24 mb-16 overflow-hidden">
           <div className="relative z-10">
             <BlurIn
-              word="Your ▲ Firewall as Config"
+              word="your ▲ firewall as .config"
               className="text-6xl font-bold mb-6 text-black dark:text-white bg-gradient-to-b from-black to-gray-900/90 bg-clip-text text-center leading-none text-transparent dark:from-white dark:to-slate-900/10"
             />
             <p className="text-xl text-gray-600 mt-8 md:mt-0 mb-12 max-w-2xl mx-auto">
