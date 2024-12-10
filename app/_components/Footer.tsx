@@ -1,14 +1,14 @@
-import { DiscordLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
-import { BugIcon } from "lucide-react";
-import Link from "next/link";
+import { DiscordLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons"
+import { BugIcon } from "lucide-react"
+import Link from "next/link"
 
 export const Footer = () => {
   return (
-    <footer className="opacity-40 hover:opacity-100 transition-opacity">
+    <footer className="opacity-40 hover:opacity-60 transition-opacity">
       <div className="container mx-auto px-4 py-4">
         <div className="flex flex-wrap justify-between items-center">
           <div className="w-full md:w-auto text-center md:text-left mb-4 md:mb-0">
-            <p className='text-xs'>
+            <p className="text-xs">
               &copy; 2024{" "}
               <a
                 href="https://griffen.codes"
@@ -19,6 +19,13 @@ export const Footer = () => {
             </p>
           </div>
           <div className="w-full md:w-auto flex justify-center md:justify-end space-x-6">
+            <Link
+              href="https://discord.gg/KGu9nE9Ejx"
+              className="text-gray-600 hover:text-black transition-colors"
+            >
+              <DiscordLogoIcon className="w-6 h-6" />
+              <span className="sr-only">Discord</span>
+            </Link>
             <Link
               href="https://github.com/gfargo/vercel-doorman/issues"
               className="text-gray-600 hover:text-black transition-colors"
@@ -33,16 +40,9 @@ export const Footer = () => {
               <GitHubLogoIcon className="w-6 h-6" />
               <span className="sr-only">GitHub</span>
             </Link>
-            <Link
-              href="https://discord.gg/KGu9nE9Ejx"
-              className="text-gray-600 hover:text-black transition-colors"
-            >
-              <DiscordLogoIcon className="w-6 h-6" />
-              <span className="sr-only">Discord</span>
-            </Link>
           </div>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}

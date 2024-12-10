@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils"
 import { GitHubLogoIcon } from "@radix-ui/react-icons"
-import { Github } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -43,7 +42,7 @@ export const HeaderNavbar = () => {
             </svg>
           </button>
         </div>
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center ">
           <DesktopLinks />
         </div>
       </div>
@@ -67,6 +66,8 @@ const DesktopLinks = () => (
       </div>
       <span className="sr-only">npm</span>
     </Link>
+    <div className='space-x-4 ml-8 flex items-center'>
+
     <Link
       href="/docs"
       className="text-gray-600 hover:text-black transition-colors"
@@ -83,9 +84,10 @@ const DesktopLinks = () => (
       href="https://github.com/gfargo/vercel-doorman"
       className="text-gray-600 hover:text-black transition-colors"
     >
-      <Github className="w-6 h-6" />
+      <GitHubLogoIcon className="w-6 h-6" />
       <span className="sr-only">GitHub</span>
     </Link>
+    </div>
   </>
 )
 
