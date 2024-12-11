@@ -194,7 +194,7 @@ export default function Home() {
               ]}
             />
             <FeatureSection
-              title="Templates"
+              title="Use Templates"
               description="Get started quickly with pre-configured templates for common use cases. Customize and extend templates to fit your project's needs."
               icon={<FileJsonIcon className="w-6 h-6" />}
               flow={<TemplateFlow />}
