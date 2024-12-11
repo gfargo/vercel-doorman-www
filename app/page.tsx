@@ -154,8 +154,8 @@ export default function Home() {
               ]}
             />
             <FeatureSection
-              title="List Rules"
-              description="View current firewall rules in table or JSON format. Easily inspect and understand your security configurations at a glance."
+              title="List Rules & IPs"
+              description="Display current firewall configuration in either a table or JSON format. Easily inspect and understand your deployed security configurations at a glance."
               icon={<ListTodoIcon className="w-6 h-6" />}
               flow={<ListFlow />}
               imageSrc="/gifs/demo-list2.gif"
