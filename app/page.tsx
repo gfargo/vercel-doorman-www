@@ -134,7 +134,7 @@ export default function Home() {
               ]}
             />
             <FeatureSection
-              title="Download Config"
+              title="Download Configs"
               direction="right"
               description="Export your current firewall configuration to a local config file. Backup and version control your security settings with ease."
               icon={<DownloadCloudIcon className="w-6 h-6" />}
