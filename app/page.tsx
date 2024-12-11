@@ -115,7 +115,7 @@ export default function Home() {
           </div>
           <div className="space-y-24 relative z-10 pb-24 lg:px-8">
             <FeatureSection
-              title="Sync Local Config"
+              title="Sync Changes"
               description="Synchronize rules between local configuration and Vercel. Keep your firewall rules up-to-date across all environments with a single command."
               icon={<FolderSyncIcon className="w-6 h-6" />}
               flow={<SyncFlow />}
@@ -136,7 +136,7 @@ export default function Home() {
             <FeatureSection
               title="Download Config"
               direction="right"
-              description="Import existing firewall configuration from a Vercel project. Seamlessly transition your current setup into a version-controlled environment."
+              description="Export your current firewall configuration to a local config file. Backup and version control your security settings with ease."
               icon={<DownloadCloudIcon className="w-6 h-6" />}
               flow={<DownloadFlowBeam />}
               imageSrc="/gifs/demo-download.gif"
