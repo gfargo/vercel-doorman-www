@@ -1,6 +1,6 @@
-import { DiscordLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons"
-import { BugIcon } from "lucide-react"
-import Link from "next/link"
+import { DiscordLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import { BugIcon } from "lucide-react";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="flex flex-wrap justify-between items-center">
           <div className="w-full md:w-auto text-center md:text-left mb-4 md:mb-0">
             <p className="text-xs">
-              &copy; 2024{" "}
+              &copy; 2025{" "}
               <a
                 href="https://griffen.codes"
                 className="hover:underline"
@@ -44,5 +44,5 @@ export const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};

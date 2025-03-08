@@ -10,26 +10,26 @@ import {
   ScanEyeIcon,
   Shield,
   Workflow,
-} from "lucide-react"
-import Link from "next/link"
-import { CopyableCommand } from "../components/CopyableCommand"
+} from "lucide-react";
+import Link from "next/link";
+import { CopyableCommand } from "../components/CopyableCommand";
 // import { Marquee } from "../components/ui/marquee";
-import { FeatureCard } from "@/components/FeatureCard"
-import { DownloadFlowBeam } from "@/components/flows/DownloadFlow"
-import { ListFlow } from "@/components/flows/ListFlow"
-import { SyncFlow } from "@/components/flows/SyncFlow"
-import { TemplateFlow } from "@/components/flows/TemplateFlow"
-import { ValidateFlow } from "@/components/flows/ValidateFlow"
-import AnimatedGridPattern from "@/components/ui/animated-grid-pattern"
-import BlurIn from "@/components/ui/blur-in"
-import BoxReveal from "@/components/ui/box-reveal"
-import { Button } from "@/components/ui/button"
-import DotPattern from "@/components/ui/dot-pattern"
-import HyperText from "@/components/ui/hyper-text"
-import Meteors from "@/components/ui/meteors"
-import { cn } from "@/lib/utils"
-import { DoubleArrowDownIcon } from "@radix-ui/react-icons"
-import { FeatureSection } from "../components/FeatureSection"
+import { FeatureCard } from "@/components/FeatureCard";
+import { DownloadFlowBeam } from "@/components/flows/DownloadFlow";
+import { ListFlow } from "@/components/flows/ListFlow";
+import { SyncFlow } from "@/components/flows/SyncFlow";
+import { TemplateFlow } from "@/components/flows/TemplateFlow";
+import { ValidateFlow } from "@/components/flows/ValidateFlow";
+import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
+import BlurIn from "@/components/ui/blur-in";
+import BoxReveal from "@/components/ui/box-reveal";
+import { Button } from "@/components/ui/button";
+import DotPattern from "@/components/ui/dot-pattern";
+import HyperText from "@/components/ui/hyper-text";
+import Meteors from "@/components/ui/meteors";
+import { cn } from "@/lib/utils";
+import { DoubleArrowDownIcon } from "@radix-ui/react-icons";
+import { FeatureSection } from "../components/FeatureSection";
 
 export default function Home() {
   return (
@@ -111,9 +111,14 @@ export default function Home() {
               className="text-xs font-bold dark:text-white w-auto"
               text={"FEATURES"}
             />
-            <DoubleArrowDownIcon className="w-3 h-3 mt-3" />
+            <Link href="#features">
+              <DoubleArrowDownIcon className="w-3 h-3 mt-3" />
+            </Link>
           </div>
-          <div className="space-y-24 relative z-10 pb-24 lg:px-8">
+          <div
+            className="space-y-24 relative z-10 pb-24 lg:px-8"
+            id="features"
+          >
             <FeatureSection
               title="Sync Changes"
               description="Synchronize rules between local configuration and Vercel. Keep your firewall rules up-to-date across all environments with a single command."
@@ -287,5 +292,5 @@ export default function Home() {
         </section>
       </main>
     </div>
-  )
+  );
 }
