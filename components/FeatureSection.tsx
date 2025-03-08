@@ -1,7 +1,10 @@
+"use client";
+
 import { InteractiveImage } from "@/components/InteractiveImage";
 import WordPullUp from "@/components/ui/word-pull-up";
 import { cn } from "@/lib/utils";
 import { CopyableCommand } from "./CopyableCommand";
+import { motion } from "framer-motion";
 
 export function FeatureSection({
   title,
@@ -23,14 +26,51 @@ export function FeatureSection({
     command: string;
   }[];
 }) {
+  const contentAnimation = {
+    hidden: { 
+      opacity: 0, 
+      x: direction === "left" ? -100 : 100 
+    },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
+
+  const imageAnimation = {
+    hidden: { 
+      opacity: 0, 
+      x: direction === "left" ? 100 : -100 
+    },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.7,
+        delay: 0.2,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
+
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
       className={cn(
         "flex flex-col md:flex-row items-center gap-8",
         direction === "right" && "md:flex-row-reverse"
       )}
     >
-      <div className="md:w-1/2 lg:w-2/3 flex flex-col gap-4 items-center">
+      <motion.div 
+        variants={contentAnimation}
+        className="md:w-1/2 lg:w-2/3 flex flex-col gap-4 items-center"
+      >
         <div className="p-4 bg-white/50">
           <div className="flex items-center mb-4">
             {icon}
@@ -42,14 +82,17 @@ export function FeatureSection({
           <p className="text-gray-600 mb-4">{description}</p>
           <CopyableCommand command={command} />
         </div>
-      </div>
-      <div className="md:w-1/2 relative">
+      </motion.div>
+      <motion.div 
+        variants={imageAnimation}
+        className="md:w-1/2 relative"
+      >
         <InteractiveImage
           src={imageSrc}
           alt={`${title} feature`}
           flow={flow}
         />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

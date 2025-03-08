@@ -81,16 +81,19 @@ export default function Home() {
             icon={<GitBranch className="w-6 h-6" />}
             title="Version Control"
             description="Track changes and collaborate effectively on your firewall rules."
+            index={0}
           />
           <FeatureCard
             icon={<Workflow className="w-6 h-6" />}
             title="Automation"
             description="Integrate firewall management into your CI/CD pipelines."
+            index={1}
           />
           <FeatureCard
             icon={<Shield className="w-6 h-6" />}
             title="Consistency"
             description="Ensure security configurations are consistent across environments."
+            index={2}
           />
         </section>
 
