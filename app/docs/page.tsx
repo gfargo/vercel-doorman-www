@@ -1,76 +1,18 @@
-import BoxReveal from "@/components/ui/box-reveal"
-import WordPullUp from "@/components/ui/word-pull-up"
+import WordPullUp from "@/components/ui/word-pull-up";
 import {
   GitHubLogoIcon,
   Link1Icon,
   VercelLogoIcon,
-} from "@radix-ui/react-icons"
-import Link from "next/link"
+} from "@radix-ui/react-icons";
+import Link from "next/link";
 
 export default function Docs() {
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="">
       <WordPullUp
         words="Docs"
         className="text-2xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-4xl md:leading-[5rem]"
       />
-      <BoxReveal boxColor="#f3f3f3">
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-600">
-            Table of Contents
-          </h2>
-          <ul className="space-y-2">
-            <li>
-              <Link
-                href="#introduction"
-                className="text-gray-400 hover:underline hover:text-gray-600"
-              >
-                Introduction
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#installation"
-                className="text-gray-400 hover:underline hover:text-gray-600"
-              >
-                Installation
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#configuration"
-                className="text-gray-400 hover:underline hover:text-gray-600"
-              >
-                Configuration
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#environment-variables"
-                className="text-gray-400 hover:underline hover:text-gray-600"
-              >
-                Environment Variables
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#commands"
-                className="text-gray-400 hover:underline hover:text-gray-600"
-              >
-                Commands
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#examples"
-                className="text-gray-400 hover:underline hover:text-gray-600"
-              >
-                Examples
-              </Link>
-            </li>
-          </ul>
-        </section>
-      </BoxReveal>
 
       <section
         id="introduction"
@@ -232,7 +174,7 @@ VERCEL_TEAM_ID=your_team_id`}
       >
         <h2 className="text-2xl font-semibold mb-4">Commands</h2>
         <ul className="space-y-4">
-          <li>
+          <li id="commands/list">
             <strong className="text-2xl md:text-4xl mr-3 opacity-40">
               list
             </strong>{" "}
@@ -249,7 +191,7 @@ npx vercel-doorman list 1
 npx vercel-doorman list 2 --format json`}
             </pre>
           </li>
-          <li>
+          <li id="commands/sync">
             <strong className="text-2xl md:text-4xl mr-3 opacity-40">
               sync
             </strong>{" "}
@@ -275,7 +217,7 @@ npx vercel-doorman list 2 --format json`}
               </ul>
             </div>
           </li>
-          <li>
+          <li id="commands/download">
             <strong className="text-2xl md:text-4xl mr-3 opacity-40">
               download
             </strong>{" "}
@@ -308,7 +250,7 @@ npx vercel-doorman download 1`}
               </ul>
             </div>
           </li>
-          <li>
+          <li id="commands/template">
             <strong className="text-2xl md:text-4xl mr-3 opacity-40">
               template
             </strong>{" "}
@@ -347,7 +289,7 @@ npx vercel-doorman template wordpress`}
               </ul>
             </div>
           </li>
-          <li>
+          <li id="commands/validate">
             <strong className="text-2xl md:text-4xl mr-3 opacity-40">
               validate
             </strong>{" "}
@@ -487,5 +429,5 @@ npx vercel-doorman validate --verbose`}
         </ul>
       </section>
     </div>
-  )
+  );
 }
