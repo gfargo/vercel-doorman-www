@@ -16,7 +16,7 @@ export default function Docs() {
 
       <section
         id="introduction"
-        className="mb-12"
+        className="mb-16 scroll-mt-16"
       >
         <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
         <p>
@@ -28,7 +28,7 @@ export default function Docs() {
 
       <section
         id="installation"
-        className="mb-12"
+        className="mb-16 scroll-mt-16"
       >
         <h2 className="text-2xl font-semibold mb-4">Installation</h2>
         <p>
@@ -45,7 +45,7 @@ export default function Docs() {
 
       <section
         id="configuration"
-        className="mb-12"
+        className="mb-16 scroll-mt-16"
       >
         <h2 className="text-2xl font-semibold mb-4">Configuration</h2>
         <p>
@@ -124,7 +124,7 @@ export default function Docs() {
 
       <section
         id="environment-variables"
-        className="mb-12"
+        className="mb-16 scroll-mt-16"
       >
         <h2 className="text-2xl font-semibold mb-4">Environment Variables</h2>
         <p>
@@ -170,11 +170,16 @@ VERCEL_TEAM_ID=your_team_id`}
 
       <section
         id="commands"
-        className="mb-12"
+        className="mb-16 scroll-mt-16"
       >
-        <h2 className="text-2xl font-semibold mb-4">Commands</h2>
+        <h2
+          className="text-2xl font-semibold mb-4"
+          id="commands-heading"
+        >
+          Commands
+        </h2>
         <ul className="space-y-4">
-          <li id="commands/list">
+          <li id="commands-list">
             <strong className="text-2xl md:text-4xl mr-3 opacity-40">
               list
             </strong>{" "}
@@ -191,7 +196,10 @@ npx vercel-doorman list 1
 npx vercel-doorman list 2 --format json`}
             </pre>
           </li>
-          <li id="commands/sync">
+          <li
+            id="commands-sync"
+            className="scroll-mt-28"
+          >
             <strong className="text-2xl md:text-4xl mr-3 opacity-40">
               sync
             </strong>{" "}
@@ -217,7 +225,10 @@ npx vercel-doorman list 2 --format json`}
               </ul>
             </div>
           </li>
-          <li id="commands/download">
+          <li
+            id="commands-download"
+            className="scroll-mt-28"
+          >
             <strong className="text-2xl md:text-4xl mr-3 opacity-40">
               download
             </strong>{" "}
@@ -250,7 +261,10 @@ npx vercel-doorman download 1`}
               </ul>
             </div>
           </li>
-          <li id="commands/template">
+          <li
+            id="commands-template"
+            className="scroll-mt-28"
+          >
             <strong className="text-2xl md:text-4xl mr-3 opacity-40">
               template
             </strong>{" "}
@@ -289,7 +303,10 @@ npx vercel-doorman template wordpress`}
               </ul>
             </div>
           </li>
-          <li id="commands/validate">
+          <li
+            id="commands-validate"
+            className="scroll-mt-28"
+          >
             <strong className="text-2xl md:text-4xl mr-3 opacity-40">
               validate
             </strong>{" "}
@@ -335,7 +352,7 @@ npx vercel-doorman validate --verbose`}
 
       <section
         id="examples"
-        className="mb-12"
+        className="mb-16 scroll-mt-16"
       >
         <h2 className="text-2xl font-semibold mb-4">Examples</h2>
         <p className="mb-4">

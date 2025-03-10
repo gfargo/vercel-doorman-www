@@ -6,13 +6,13 @@ import Link from "next/link"
 
 export default function GettingStarted() {
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div>
       <WordPullUp
         words="Getting Started"
         className="text-2xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-4xl md:leading-[5rem]"
       />
 
-      <section className="mb-12">
+      <section id="installation" className="mb-16">
         <h2 className="text-2xl font-semibold mb-4">Installation</h2>
         <p className="mb-4">
           To get started with Vercel Doorman, first install it using your
@@ -49,10 +49,10 @@ export default function GettingStarted() {
         </div>
       </section>
 
-      <section className="mb-12">
+      <section id="basic-usage" className="mb-16">
         <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
         <ol className="list-decimal list-inside space-y-8">
-          <li>
+          <li id="configuration">
             <strong>Create or update configuration file:</strong>
             <p className="mt-2">
               Ensure you have a <code>vercel-firewall.config.json</code> file in
@@ -84,7 +84,7 @@ export default function GettingStarted() {
               from Vercel.
             </p>
           </li>
-          <li>
+          <li id="adding-rules" className="scroll-mt-28">
             <strong>Add firewall rules:</strong>
             <p className="mt-2">
               You can add rules in two ways:
@@ -161,7 +161,7 @@ npx vercel-doorman template ai-bots`}
               .
             </p>
           </li>
-          <li>
+          <li id="sync-rules" className="scroll-mt-28">
             <strong>Sync your rules:</strong>
             <pre className="bg-gray-100 p-4 rounded-md mt-2 font-mono text-sm">
               npx vercel-doorman sync --token YOUR_VERCEL_API_TOKEN
@@ -182,7 +182,7 @@ npx vercel-doorman template ai-bots`}
             </p>
           </li>
 
-          <li>
+          <li id="add-script-alias" className="scroll-mt-28">
             <strong>Add script alias (optional):</strong>
             <p className="mt-2">
               To make it easier to run the sync command, add a script alias to
@@ -205,7 +205,7 @@ npx vercel-doorman template ai-bots`}
         </ol>
       </section>
 
-      <section className="mb-12">
+      <section id="common-rule-examples" className="mb-16">
         <h2 className="text-2xl font-semibold mb-4">Common Rule Examples</h2>
         <div className="space-y-6">
           <div>
@@ -327,7 +327,7 @@ npx vercel-doorman template ai-bots`}
         </div>
       </section>
 
-      <section className="mb-12">
+      <section id="next-steps" className="mb-16">
         <h2 className="text-2xl font-semibold mb-4">Next Steps</h2>
         <ul className="space-y-2">
           <li>
