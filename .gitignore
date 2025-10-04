@@ -33,3 +33,8 @@ next-env.d.ts
 
 # Docker
 postgres_data/
+
+.kiro
+AGENTS.md
+CLAUDE.md
+GEMINI.md
