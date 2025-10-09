@@ -31,9 +31,45 @@ import { cn } from "@/lib/utils";
 import { DoubleArrowDownIcon } from "@radix-ui/react-icons";
 import { FeatureSection } from "../components/FeatureSection";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://doorman.griffen.codes";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Vercel Doorman",
+  applicationCategory: "DeveloperApplication",
+  operatingSystem: "Cross-platform",
+  description:
+    "Manage Vercel Firewall rules as code with version control and CI/CD integration. CLI tool for syncing, downloading, validating, and deploying security configurations.",
+  url: siteUrl,
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  featureList: [
+    "Version control for firewall rules",
+    "CI/CD pipeline integration",
+    "Sync configurations across environments",
+    "Download and backup firewall rules",
+    "Validate rules before deployment",
+    "Pre-configured templates",
+  ],
+  softwareHelp: {
+    "@type": "WebPage",
+    url: `${siteUrl}/docs`,
+  },
+  installUrl: "https://www.npmjs.com/package/vercel-doorman",
+  screenshot: `${siteUrl}/og-image.png`,
+};
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <DotPattern
         width={20}
         height={20}
