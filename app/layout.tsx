@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     siteName: "Vercel Doorman",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Vercel Doorman - Firewall Management as Code",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "Vercel Doorman - Manage Vercel Firewall Rules as Code",
     description:
       "Manage Vercel Firewall rules as code with version control and CI/CD integration.",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
     creator: "@vercel",
   },
   alternates: {

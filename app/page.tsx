@@ -60,7 +60,7 @@ const jsonLd = {
     url: `${siteUrl}/docs`,
   },
   installUrl: "https://www.npmjs.com/package/vercel-doorman",
-  screenshot: `${siteUrl}/og-image.png`,
+  screenshot: `${siteUrl}/og-image.jpg`,
 };
 
 export default function Home() {
