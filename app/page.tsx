@@ -40,7 +40,7 @@ const jsonLd = {
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Cross-platform",
   description:
-    "Manage Vercel Firewall rules as code with version control and CI/CD integration. CLI tool for syncing, downloading, validating, and deploying security configurations.",
+    "Manage Vercel and Cloudflare WAF rules as code with version control and CI/CD integration. CLI tool for syncing, downloading, validating, and deploying multi-provider security configurations.",
   url: siteUrl,
   offers: {
     "@type": "Offer",
@@ -48,12 +48,12 @@ const jsonLd = {
     priceCurrency: "USD",
   },
   featureList: [
-    "Version control for firewall rules",
-    "CI/CD pipeline integration",
-    "Sync configurations across environments",
-    "Download and backup firewall rules",
-    "Validate rules before deployment",
-    "Pre-configured templates",
+    "Unified Vercel and Cloudflare WAF management",
+    "Version control and code review for firewall rules",
+    "CI/CD automation for security deployments",
+    "Provider-aware sync and drift detection",
+    "Download and audit rule history",
+    "Pre-configured policy templates",
   ],
   softwareHelp: {
     "@type": "WebPage",
@@ -83,11 +83,14 @@ export default function Home() {
       <main className="">
         <section className="container px-4 md:px-0 mx-auto relative text-center py-24 mb-16 overflow-hidden">
           <div className="relative z-10">
+            <div className="mx-auto mb-8 w-fit rounded-full border border-orange-200 bg-orange-50 px-5 py-2 text-xs font-semibold uppercase tracking-wide text-orange-600">
+              Doorman 2.0 <span className="ml-1 font-normal text-orange-500">Cloudflare WAF support coming soon</span>
+            </div>
             <BlurIn
-              word="your ▲ firewall as .config"
+              word="your W▲F firewall as .config"
               className="text-6xl font-bold mb-6 text-black dark:text-white bg-gradient-to-b from-black to-gray-900/90 bg-clip-text text-center leading-none text-transparent dark:from-white dark:to-slate-900/10"
             />
-            <p className="text-xl text-gray-600 mt-8 md:mt-0 mb-12 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mt-8 md:mt-0 max-w-2xl mx-auto">
               Manage{" "}
               <Link
                 className="text-gray-800 underline hover:text-gray-400 hover:no-underline"
@@ -96,9 +99,27 @@ export default function Home() {
               >
                 Vercel Firewall
               </Link>{" "}
-              rules as code, enabling version control and automated deployment
-              of your project's security configuration.
+              and{" "}
+              <Link
+                className="text-gray-800 underline hover:text-gray-400 hover:no-underline"
+                href="https://developers.cloudflare.com/waf"
+                target="_blank"
+              >
+                Cloudflare security policies
+              </Link>{" "}
+              from a single file.
             </p>
+            <div className="mt-10 mb-12 max-w-2xl mx-auto rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-[1px] shadow-lg">
+              <div className="rounded-3xl bg-slate-950/90 px-6 py-5 text-left">
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">
+                  <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  Doorman 2.0
+                </div>
+                <p className="mt-1.5 text-sm text-slate-100">
+                  Multi-provider WAF automation wired directly into your version control and CI/CD workflows.
+                </p>
+              </div>
+            </div>
             <div className="w-full flex justify-center">
               <CopyableCommand
                 command={[
@@ -115,20 +136,20 @@ export default function Home() {
         <section className="container px-4 md:px-0 mx-auto grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-8 space-y-8 lg:space-y-0 mb-24 xl:px-4">
           <FeatureCard
             icon={<GitBranch className="w-6 h-6" />}
-            title="Version Control"
-            description="Track changes and collaborate effectively on your firewall rules."
+            title="Multi-Provider Control"
+            description="Ship one policy pack to Vercel and Cloudflare with provider-specific overrides when you need them."
             index={0}
           />
           <FeatureCard
             icon={<Workflow className="w-6 h-6" />}
-            title="Automation"
-            description="Integrate firewall management into your CI/CD pipelines."
+            title="Automated Workflows"
+            description="Promote firewall changes through pull requests, previews, and CI/CD with guardrails built in."
             index={1}
           />
           <FeatureCard
             icon={<Shield className="w-6 h-6" />}
-            title="Consistency"
-            description="Ensure security configurations are consistent across environments."
+            title="Confident Governance"
+            description="Audit every change, enforce review policies, and keep environments consistent across providers."
             index={2}
           />
         </section>
@@ -160,7 +181,7 @@ export default function Home() {
           >
             <FeatureSection
               title="Sync Changes"
-              description="Synchronize rules between local configuration and Vercel. Keep your firewall rules up-to-date across all environments with a single command."
+              description="Synchronize rule packs to Vercel and Cloudflare from the same config. Catch drift with provider-aware diffs before anything ships."
               icon={<FolderSyncIcon className="w-6 h-6" />}
               flow={<SyncFlow />}
               imageSrc="/gifs/demo-sync.gif"
@@ -180,7 +201,7 @@ export default function Home() {
             <FeatureSection
               title="Download Configs"
               direction="right"
-              description="Export your current firewall configuration to a local config file. Backup and version control your security settings with ease."
+              description="Export deployed rules from each provider into versioned config files. Keep Cloudflare and Vercel in lockstep with Git history."
               icon={<DownloadCloudIcon className="w-6 h-6" />}
               flow={<DownloadFlowBeam />}
               imageSrc="/gifs/demo-download.gif"
@@ -199,7 +220,7 @@ export default function Home() {
             />
             <FeatureSection
               title="List Rules & IPs"
-              description="Display current firewall configuration in either a table or JSON format. Easily inspect and understand your deployed security configurations at a glance."
+              description="Inspect deployed policies with human-friendly tables or JSON. Filter by provider, environment, and rule group in seconds."
               icon={<ListTodoIcon className="w-6 h-6" />}
               flow={<ListFlow />}
               imageSrc="/gifs/demo-list2.gif"
@@ -219,7 +240,7 @@ export default function Home() {
             <FeatureSection
               title="Validate Rules"
               direction="right"
-              description="Check your local configuration for errors and inconsistencies. Ensure your firewall rules are valid before deploying to Vercel."
+              description="Validate rule syntax and provider-specific constraints before deployment. Ship with confidence knowing both WAFs will accept the change."
               icon={<ScanEyeIcon className="w-6 h-6" />}
               flow={<ValidateFlow />}
               // TODO REPLACE WITH NEW GIF
@@ -239,7 +260,7 @@ export default function Home() {
             />
             <FeatureSection
               title="Use Templates"
-              description="Get started quickly with pre-configured templates for common use cases. Customize and extend templates to fit your project's needs."
+              description="Kickstart new protections with templates tuned for Vercel and Cloudflare. Customize and extend policy packs as your edge footprint grows."
               icon={<FileJsonIcon className="w-6 h-6" />}
               flow={<TemplateFlow />}
               // TODO REPLACE WITH NEW GIF
@@ -279,7 +300,7 @@ export default function Home() {
                 duration={0.5}
               >
                 <h2 className="text-2xl font-bold">
-                  Ready to secure your Vercel deployments?
+                  Ready for Doorman 2.0?
                 </h2>
               </BoxReveal>
               <BoxReveal
@@ -287,8 +308,7 @@ export default function Home() {
                 duration={0.5}
               >
                 <p className="text-gray-400 mb-6">
-                  Get started with Vercel Doorman today and take control of your
-                  firewall rules.
+                  Bring Cloudflare and Vercel WAF automation into the same review process your team already trusts.
                 </p>
               </BoxReveal>
               <BoxReveal
