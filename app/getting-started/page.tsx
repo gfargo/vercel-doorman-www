@@ -11,6 +11,9 @@ export default function GettingStarted() {
         words="Getting Started"
         className="text-2xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-4xl md:leading-[5rem]"
       />
+      <p className="mt-4 text-gray-600 max-w-2xl">
+        Doorman 2.0 introduces multi-provider WAF automation so you can manage Vercel and Cloudflare security policies from the same workflow. Use this guide to get set up today and prepare for the forthcoming Cloudflare release.
+      </p>
 
       <section id="installation" className="mb-16">
         <h2 className="text-2xl font-semibold mb-4">Installation</h2>
@@ -26,6 +29,12 @@ export default function GettingStarted() {
             { value: "bun", command: "bun add vercel-doorman" },
           ]}
         />
+        <div className="mt-6 rounded-md border border-orange-200 bg-orange-50 p-4 text-sm text-orange-700">
+          <p className="font-semibold uppercase tracking-wide text-orange-600">Doorman 2.0 preview</p>
+          <p className="mt-2">
+            Cloudflare WAF support ships with Doorman 2.0. Install the CLI today and you will be able to target <code>--provider cloudflare</code> as soon as the release is live.
+          </p>
+        </div>
         <div className="mt-6">
           <BoxReveal boxColor="#f3f3f3">
             <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
@@ -43,6 +52,11 @@ export default function GettingStarted() {
               <p className="mt-2 text-blue-700">
                 This will generate a <code>vercel-firewall.config.json</code>{" "}
                 file with your existing configuration before you proceed.
+              </p>
+              <p className="mt-4 text-blue-700">
+                When Cloudflare support lands, run{" "}
+                <code>npx vercel-doorman download --provider cloudflare</code>{" "}
+                to pull your Cloudflare WAF configuration into the same project.
               </p>
             </div>
           </BoxReveal>
@@ -83,6 +97,12 @@ export default function GettingStarted() {
               </Link>{" "}
               from Vercel.
             </p>
+            <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mt-4 text-sm text-orange-700">
+              <p className="font-semibold">Cloudflare configuration (Doorman 2.0)</p>
+              <p className="mt-2">
+                The upcoming release adds support for Cloudflare accounts and zones. You will be able to extend your config with provider-specific sections without changing the rest of your workflow. Stay tuned for the dedicated Cloudflare quickstart when 2.0 is live.
+              </p>
+            </div>
           </li>
           <li id="adding-rules" className="scroll-mt-28">
             <strong>Add firewall rules:</strong>
@@ -180,6 +200,13 @@ npx vercel-doorman template ai-bots`}
                 Learn how to create and use a Vercel API token
               </Link>
             </p>
+            <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mt-4 text-sm text-orange-700">
+              <p className="font-semibold">Cloudflare sync (preview)</p>
+              <p className="mt-2">
+                Doorman 2.0 adds{" "}
+                <code>npx vercel-doorman sync --provider cloudflare</code> so you can promote Cloudflare WAF changes alongside your Vercel updates.
+              </p>
+            </div>
           </li>
 
           <li id="add-script-alias" className="scroll-mt-28">

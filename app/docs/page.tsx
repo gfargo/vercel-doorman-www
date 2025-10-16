@@ -20,10 +20,16 @@ export default function Docs() {
       >
         <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
         <p>
-          Vercel Doorman is a powerful tool for managing Vercel Firewall rules
-          as code. It enables version control and automated deployment of your
-          project's security configuration.
+          Vercel Doorman 2.0 is a powerful tool for managing Vercel and Cloudflare WAF rules as code. It enables version control and automated deployment of your project's security configuration across providers.
         </p>
+        <div className="mt-4 rounded-md border border-orange-200 bg-orange-50 p-4 text-sm text-orange-700">
+          <p className="font-semibold uppercase tracking-wide text-orange-600">
+            Cloudflare support
+          </p>
+          <p className="mt-2">
+            Cloudflare integration lands with the Doorman 2.0 release. The rest of this guide walks through the existing Vercel workflow so you can get set up ahead of launch.
+          </p>
+        </div>
       </section>
 
       <section
@@ -120,6 +126,12 @@ export default function Docs() {
             file.
           </p>
         </div>
+        <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6 text-sm text-orange-700">
+          <p className="font-semibold">Cloudflare configuration (Doorman 2.0)</p>
+          <p className="mt-2">
+            Cloudflare accounts and zones will be supported with the 2.0 launch. Configuration examples and schema updates will be added here as soon as the release ships.
+          </p>
+        </div>
       </section>
 
       <section
@@ -166,6 +178,12 @@ VERCEL_TEAM_ID=your_team_id`}
           file to prevent sensitive information from being committed to your
           repository.
         </p>
+        <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mt-6 text-sm text-orange-700">
+          <p className="font-semibold">Cloudflare environment variables</p>
+          <p className="mt-2">
+            Cloudflare token, account, and zone environment variables will be listed here when Doorman 2.0 is released.
+          </p>
+        </div>
       </section>
 
       <section
@@ -222,6 +240,9 @@ npx vercel-doorman list 2 --format json`}
                 <li>
                   <code>--token</code>: Vercel API token
                 </li>
+                <li>
+                  <code>--provider</code>: Target provider (Cloudflare support lands with Doorman 2.0)
+                </li>
               </ul>
             </div>
           </li>
@@ -257,6 +278,9 @@ npx vercel-doorman download 1`}
                 </li>
                 <li>
                   <code>--token</code>: Vercel API token
+                </li>
+                <li>
+                  <code>--provider</code>: Target provider (Cloudflare download support arrives with Doorman 2.0)
                 </li>
               </ul>
             </div>
